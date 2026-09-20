@@ -74,6 +74,8 @@ export function MenuDrawer({
                 { label: "PLACES", href: "#places", desc: "IIT Jodhpur Campus labs & facilities" },
                 { label: "POSSIBILITIES", href: "#possibilities", desc: "From Problem to Proof" },
                 { label: "PROBLEM PHASE (FINAL 2)", href: "#final-2", desc: "Gate 01 validation criteria" },
+                { label: "PLAN PHASE (FINAL 3)", href: "#final-3", desc: "Gate 02 system blueprint" },
+                { label: "TEAM DETAILS", href: "/team", desc: "Active roster, mentors & dossier" },
               ].map((item) => (
                 <a
                   key={item.label}
