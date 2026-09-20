@@ -14,6 +14,7 @@ import {
 import { Countdown } from "@/components/countdown";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { BnbHero } from "@/components/bnb-hero";
+import { Final2Phase } from "@/components/final2-phase";
 import { FigmaLandingImporter } from "@/components/figma-landing-importer";
 import { FigmaIntegration } from "@/components/figma-integration";
 import { LofiWireframe } from "@/components/lofi-wireframe";
@@ -159,7 +160,17 @@ export default function Home() {
       </header>
 
       {/* ============================================================== main */}
-      <main className="flex-1">
+      <main className="flex-1 space-y-12 py-6">
+        {/* ==================================== FIGMA NODE 193:3 HERO SECTION */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <BnbHero />
+        </div>
+
+        {/* ==================================== FIGMA FRAME: FINAL 2 PHASE */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Final2Phase />
+        </div>
+
         {/* ================================================== hero split */}
         <section className="grid border-b border-border lg:min-h-[calc(100vh-3.5rem)] lg:grid-cols-[minmax(0,576fr)_minmax(0,807fr)]">
           {/* left column */}
