@@ -1,31 +1,6 @@
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  Asterisk,
-  Clock3,
-  Compass,
-  Flag,
-  Globe,
-  Layers,
-  MapPin,
-  Menu as MenuIcon,
-  Plus,
-  ShieldCheck,
-  Sparkles,
-  Trophy,
-  Zap,
-} from "lucide-react";
-
 import { BnbHero } from "@/components/bnb-hero";
 import { Final2Phase } from "@/components/final2-phase";
-import { FigmaLandingImporter } from "@/components/figma-landing-importer";
-import { FigmaNodeVisualizer } from "@/components/figma-node-visualizer";
-import { FigmaIntegration } from "@/components/figma-integration";
-import { LofiWireframe } from "@/components/lofi-wireframe";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -53,11 +28,8 @@ export default function Home() {
             <a href="#problem-phase" className="hover:text-red-600 transition-colors">
               Problem Phase
             </a>
-            <a href="#importer" className="hover:text-red-600 transition-colors">
-              Figma Importer
-            </a>
-            <a href="#credentials" className="hover:text-red-600 transition-colors">
-              API Credentials
+            <a href="#industry" className="hover:text-red-600 transition-colors">
+              For Industry
             </a>
           </nav>
 
@@ -79,67 +51,20 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ------------------------------------------------------------ MAIN CANVAS */}
+      {/* ------------------------------------------------------------ MAIN OFFICIAL WEBSITE */}
       <main className="mx-auto max-w-[1383px] px-4 sm:px-6 py-6 space-y-12">
-        {/* Figma Design Banner Spec Tag */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3 rounded-lg border border-black bg-white text-xs font-mono">
-          <div className="flex items-center gap-2">
-            <Badge className="bg-red-600 text-white font-mono text-[10px] uppercase">
-              SINGLE TARGET FIGMA DESIGN
-            </Badge>
-            <span className="font-bold text-black">File Key: 71J7xt6jCh3nohTfer22uV</span>
-            <span className="text-gray-500">· Node ID: 193-3 & 193-4</span>
-          </div>
-          <a
-            href="https://www.figma.com/design/71J7xt6jCh3nohTfer22uV/Design-Challenge?node-id=193-3"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1"
-          >
-            Open Source File in Figma <ArrowUpRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-
-        {/* ------------------------------------ 1. LANDING PAGE FINAL (NODE 193:3) */}
+        {/* 1. LANDING PAGE FINAL (NODE 193:3) */}
         <section id="bnb-hero">
           <BnbHero />
         </section>
 
-        {/* ------------------------------------ 2. FINAL 2 PROBLEM PHASE (NODE 193:4) */}
+        {/* 2. FINAL 2 PROBLEM PHASE (NODE 193:4) */}
         <section id="problem-phase">
           <Final2Phase />
         </section>
-
-        {/* ------------------------------------ 3. FIGMA LIVE NODE INSPECTOR */}
-        <section id="node-inspector">
-          <FigmaNodeVisualizer />
-        </section>
-
-        {/* ------------------------------------ 4. FIGMA REST API AUTO IMPORTER */}
-        <section id="importer" className="space-y-4">
-          <div className="text-center space-y-1 max-w-2xl mx-auto">
-            <Badge variant="outline" className="text-xs font-mono border-black text-black">
-              FIGMA REST API V1 CONNECTED
-            </Badge>
-            <h2 className="text-2xl font-black uppercase tracking-tight">
-              Figma Design Token & Code Exporter
-            </h2>
-          </div>
-          <FigmaLandingImporter />
-        </section>
-
-        {/* ------------------------------------ 5. LO-FI ARCHITECTURAL WIREFRAME SPEC */}
-        <section id="lofi">
-          <LofiWireframe />
-        </section>
-
-        {/* ------------------------------------ 6. FIGMA OAUTH CREDENTIALS MANAGER */}
-        <section id="credentials" className="max-w-4xl mx-auto">
-          <FigmaIntegration />
-        </section>
       </main>
 
-      {/* ---------------------------------------------------------- FOOTER */}
+      {/* ---------------------------------------------------------- OFFICIAL FOOTER */}
       <footer className="border-t border-black bg-black text-white text-xs font-mono py-8 px-4 sm:px-6">
         <div className="mx-auto max-w-[1383px] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -149,7 +74,7 @@ export default function Home() {
             <span>SCHOOL OF DESIGN · IIT JODHPUR</span>
           </div>
           <div className="text-gray-400 text-center sm:text-right">
-            Figma Design File: <code className="text-amber-400">71J7xt6jCh3nohTfer22uV</code> · Node <code className="text-emerald-400">193:3</code>
+            27 SEP - 29 DEC | IIT JODHPUR CAMPUS · IDEAS FOR A MORE INTERESTING TOMORROW.
           </div>
         </div>
       </footer>
