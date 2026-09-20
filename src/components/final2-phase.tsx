@@ -1,373 +1,348 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, AlertTriangle, CheckCircle2, ChevronDown, Sparkles, Filter, ShieldAlert } from "lucide-react";
+import { ArrowRight, ChevronRight, CheckCircle2 } from "lucide-react";
 import { RegisterModal } from "@/components/register-modal";
 
 export function Final2Phase() {
-  const [activeStep, setActiveStep] = useState<number | null>(0);
-  const [insightRatio, setInsightRatio] = useState(90);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
-
-  const stepDetails = [
-    {
-      step: "01",
-      title: "FRAME THE PROBLEM",
-      description: "Define the specific point of friction. Avoid generic problem statements.",
-      checklist: [
-        "Articulate the exact stakeholder pain point in 1 clear sentence.",
-        "Ground the problem in verifiable real-world context (no hypothetical toys).",
-        "Explain who suffers if this problem remains unsolved.",
-      ],
-    },
-    {
-      step: "02",
-      title: "UNDERSTAND THE USER",
-      description: "Direct behavioral observation and user interviews over assumptions.",
-      checklist: [
-        "Conduct at least 5 primary user conversations or ethnographic observations.",
-        "Document existing coping mechanisms and manual workarounds.",
-        "Identify emotional and financial friction points.",
-      ],
-    },
-    {
-      step: "03",
-      title: "SHOW ITS SEVERITY",
-      description: "Demonstrate quantified impact, frequency, and depth of friction.",
-      checklist: [
-        "Present numerical data or frequency of occurrence.",
-        "Highlight systemic cost of inaction (economic, psychological, or ecological).",
-        "Rank severity against competing daily priorities.",
-      ],
-    },
-    {
-      step: "04",
-      title: "CHECK EXISTING ALTERNATIVES",
-      description: "Analyze current market solutions and explain precisely why they fail.",
-      checklist: [
-        "Map top 3 current competitive solutions or workarounds.",
-        "Isolate structural failure modes in incumbent products.",
-        "Identify the precise white space where your approach intervenes.",
-      ],
-    },
-  ];
 
   return (
     <>
-      <section id="final-2" className="w-full bg-white text-black font-['Inter',sans-serif] border-2 border-black shadow-2xl">
-        {/* ------------------------------------------------ TOP STATUS BAR */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-black bg-[#F3F4F6] px-4 sm:px-6 py-2.5 text-xs font-mono gap-1 sm:gap-0">
-          <div className="flex items-center gap-2 font-bold">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#CFFD3E] border border-black animate-pulse" />
-            <span>FIGMA FRAME: FINAL 2 · PROBLEM PHASE</span>
+      {/* ------------------------------------------------ FIGMA FRAME: FINAL 2 (1383px × 1317px, #FFFFFF) */}
+      <section
+        id="final-2"
+        className="w-full max-w-[1383px] bg-[#FFFFFF] text-[#000000] border border-[#000000] flex flex-col items-start p-0 relative font-['Inter',sans-serif] select-none shadow-2xl overflow-hidden box-border"
+      >
+        {/* Frame: Status Bar (27px, #F3F4F6) */}
+        <div className="w-full h-[27px] bg-[#F3F4F6] border-b border-[#000000] px-6 flex items-center justify-between box-border">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#CFFD3E] border border-black" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-black">
+              FRAME: FINAL 2 · PROBLEM PHASE
+            </span>
           </div>
-          <span className="text-[11px] text-gray-600 font-bold">
-            1383px × 1317px · RESPONSIVE WEB & MOBILE
+          <span className="font-mono text-[10px] text-gray-500 font-medium">
+            1383px × 1317px · AUTO LAYOUT
           </span>
         </div>
 
-        {/* Phase Header */}
-        <div className="flex items-center justify-between border-b border-black bg-black px-4 sm:px-6 py-3.5 text-white">
-          <h3 className="font-black text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2">
-            <span>01 · PROBLEM PHASE DIRECTIVE</span>
-          </h3>
-          <span className="font-mono text-xs text-[#CFFD3E] font-extrabold tracking-wider">
-            DEADLINE: 05 OCT · 11:59 PM IST
+        {/* Frame: Problem Bar (41px, #000000) */}
+        <div className="w-full h-[41px] bg-[#000000] px-6 flex items-center justify-between box-border">
+          <span className="font-extrabold text-[14px] leading-[17px] tracking-[1px] text-[#FFFFFF] uppercase">
+            PROBLEM
+          </span>
+          <span className="font-mono text-xs text-[#CFFD3E] font-bold">
+            GATE 01 EVALUATION
           </span>
         </div>
 
-        {/* Main Content Split: Left (800px) & Right (583px) on lg+ */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-black">
-          {/* ============================================== LEFT COLUMN */}
-          <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r border-black p-6 sm:p-10 space-y-8 bg-white">
-            {/* Title & Subtitle with hover interaction */}
-            <div className="space-y-3 group cursor-default">
-              <h2 className="text-5xl sm:text-7xl lg:text-[76px] font-[900] tracking-tight uppercase leading-[0.92] text-black">
-                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">IS IT WORTH</span> <br />
-                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">SOLVING?</span>
+        {/* Main Content Split: Left (800px) & Right (583px) — Total 622px high */}
+        <div className="w-full flex flex-col lg:flex-row items-stretch p-0 border-b border-[#000000]">
+          {/* ============================================== LEFT COLUMN (800px, border-r: 1px) */}
+          <div className="w-full lg:w-[800px] shrink-0 border-b lg:border-b-0 lg:border-r border-[#000000] p-6 sm:p-8 flex flex-col justify-between gap-6 box-border bg-white">
+            {/* Title Block */}
+            <div className="space-y-2">
+              <h2 className="font-[900] text-[52px] sm:text-[64px] lg:text-[72px] leading-[1.05] tracking-tight uppercase text-[#000000]">
+                IS IT WORTH <br />
+                SOLVING?
               </h2>
-              <div className="flex items-center gap-3 pt-1">
-                <span className="h-[2px] w-8 group-hover:w-16 transition-all duration-300 bg-black shrink-0" />
-                <p className="font-extrabold text-sm sm:text-base tracking-tight uppercase text-black">
+
+              <div className="pt-2">
+                <p className="font-bold text-[15px] sm:text-[16px] leading-[19px] text-[#000000]">
                   Prove the problem is real before trying to solve it.
                 </p>
               </div>
             </div>
 
-            {/* WHAT YOU NEED TO DO - 4 Steps Interactive Grid */}
-            <div className="space-y-4 pt-2">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold tracking-widest text-neutral-500 uppercase block">
-                  WHAT YOU NEED TO DO (CLICK STEP TO EXPAND CRITERIA)
-                </span>
-                <span className="text-[10px] font-mono font-bold text-neutral-400">
-                  4 PROGRESSIVE DIRECTIVES
-                </span>
-              </div>
+            {/* WHAT YOU NEED TO DO - 4 Directive Boxes */}
+            <div className="space-y-3">
+              <span className="font-medium text-[11px] leading-[13px] tracking-[1px] uppercase text-[#6B7280] block">
+                WHAT YOU NEED TO DO
+              </span>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {stepDetails.map((item, index) => {
-                  const isActive = activeStep === index;
-                  return (
-                    <div
-                      key={item.step}
-                      onClick={() => setActiveStep(isActive ? null : index)}
-                      className={`p-4 border transition-all duration-200 cursor-pointer select-none group/step ${
-                        isActive
-                          ? "border-black bg-[#CFFD3E] shadow-md -translate-y-0.5"
-                          : "border-[#000000] bg-[#F3F4F6] hover:bg-neutral-100 hover:border-black hover:-translate-y-0.5 hover:shadow-md"
-                      }`}
-                    >
-                      <div className="flex items-center justify-between font-black text-xs uppercase">
-                        <span className="group-hover/step:translate-x-0.5 transition-transform">
-                          {item.step} {item.title}
-                        </span>
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${
-                            isActive ? "rotate-180 text-black" : "text-neutral-500 group-hover/step:text-black"
-                          }`}
-                        />
-                      </div>
-                      <p className="text-[11px] text-neutral-700 mt-2 font-medium leading-snug">
-                        {item.description}
-                      </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="h-[47px] px-4 bg-[#F3F4F6] border border-[#E5E7EB] hover:border-black flex items-center justify-between transition-colors cursor-pointer group">
+                  <span className="font-extrabold text-[12px] leading-[15px] uppercase text-[#000000]">
+                    01 FRAME THE PROBLEM
+                  </span>
+                  <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 transition-all" />
+                </div>
 
-                      {/* Expandable Checklist */}
-                      {isActive && (
-                        <div className="mt-3 pt-3 border-t border-black/30 space-y-1.5 text-[11px] font-mono animate-in fade-in">
-                          {item.checklist.map((point, i) => (
-                            <div key={i} className="flex items-start gap-1.5 text-black">
-                              <CheckCircle2 className="w-3.5 h-3.5 shrink-0 mt-0.5 text-black" />
-                              <span>{point}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                <div className="h-[47px] px-4 bg-[#F3F4F6] border border-[#E5E7EB] hover:border-black flex items-center justify-between transition-colors cursor-pointer group">
+                  <span className="font-extrabold text-[12px] leading-[15px] uppercase text-[#000000]">
+                    02 UNDERSTAND THE USER
+                  </span>
+                  <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 transition-all" />
+                </div>
+
+                <div className="h-[47px] px-4 bg-[#F3F4F6] border border-[#E5E7EB] hover:border-black flex items-center justify-between transition-colors cursor-pointer group">
+                  <span className="font-extrabold text-[12px] leading-[15px] uppercase text-[#000000]">
+                    03 SHOW ITS SEVERITY
+                  </span>
+                  <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 transition-all" />
+                </div>
+
+                <div className="h-[47px] px-4 bg-[#F3F4F6] border border-[#E5E7EB] hover:border-black flex items-center justify-between transition-colors cursor-pointer group">
+                  <span className="font-extrabold text-[12px] leading-[15px] uppercase text-[#000000]">
+                    04 CHECK EXISTING ALTERNATIVES
+                  </span>
+                  <ChevronRight className="w-3.5 h-3.5 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 transition-all" />
+                </div>
               </div>
             </div>
 
-            {/* Black Accent Card: DON'T BUILD YET with Hover Glow */}
-            <div className="relative rounded-none bg-black text-white p-6 sm:p-8 space-y-3 overflow-hidden border border-black shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-default">
-              <div className="absolute bottom-4 right-4 h-3 w-16 bg-[#CFFD3E] group-hover:w-24 transition-all duration-300" />
-              <h4 className="text-2xl sm:text-3xl font-[900] uppercase text-[#CFFD3E] tracking-tight leading-tight group-hover:tracking-normal transition-all">
+            {/* Black Card: DON'T BUILD YET. UNDERSTAND FIRST. (736px × 166px spec) */}
+            <div className="w-full min-h-[140px] sm:h-[166px] bg-[#000000] p-6 sm:p-8 relative flex flex-col justify-between overflow-hidden shadow-lg group">
+              {/* Yellow Accent Tab at bottom right */}
+              <div className="absolute bottom-4 right-4 w-[50px] h-[10px] bg-[#CFFD3E] group-hover:w-[70px] transition-all duration-300" />
+
+              <h3 className="font-['Inter',sans-serif] font-[900] text-[20px] sm:text-[22px] leading-[110%] uppercase text-[#CFFD3E] tracking-tight">
                 DON’T BUILD YET. <br />
                 UNDERSTAND FIRST.
-              </h4>
-              <p className="text-xs font-mono text-gray-300 max-w-lg leading-relaxed">
-                School of Design / IIT Jodhpur directive: Every solution without empirical user validation will be eliminated at Gate 01 on 11 Oct.
+              </h3>
+
+              <p className="font-mono text-[11px] text-gray-300 max-w-lg leading-relaxed pt-2">
+                observed — SCHOOL OF DESIGN / IIT JODHPUR lockup. Every concept without empirical stakeholder validation will be eliminated at Gate 01.
               </p>
             </div>
           </div>
 
-          {/* ============================================== RIGHT COLUMN */}
-          <div className="lg:col-span-5 flex flex-col justify-between bg-white">
-            {/* Interactive Output Ratio Card (90% Insight / 10% Solution) */}
-            <div className="p-6 sm:p-8 border-b border-black space-y-5 bg-white">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold tracking-widest text-black uppercase">
-                  EVALUATION CRITERIA
-                </span>
-                <span className="text-[10px] font-mono font-bold text-neutral-500">
-                  SLIDER INTERACTION
-                </span>
-              </div>
+          {/* ============================================== RIGHT COLUMN (583px, background: #FFFFFF) */}
+          <div className="w-full lg:w-[583px] shrink-0 flex flex-col justify-between bg-[#FFFFFF]">
+            {/* Top Box: OUTPUT (242px spec, border-b: 1px) */}
+            <div className="p-6 sm:p-8 border-b border-[#000000] space-y-3 box-border">
+              <span className="font-medium text-[11px] leading-[13px] tracking-[1px] uppercase text-[#000000] block">
+                OUTPUT
+              </span>
 
-              <h3 className="text-2xl sm:text-3xl font-[900] uppercase leading-tight tracking-tight">
-                {insightRatio}% INSIGHT <br />
-                {100 - insightRatio}% SOLUTION
+              <h3 className="font-[900] text-[32px] sm:text-[36px] leading-[110%] uppercase text-[#000000] tracking-tight">
+                90% INSIGHT <br />
+                10% SOLUTION
               </h3>
 
-              {/* Interactive Ratio Bar & Slider */}
-              <div className="space-y-3">
-                <div className="h-8 w-full bg-black relative rounded-none overflow-hidden border border-black flex shadow-inner">
-                  <div
-                    style={{ width: `${insightRatio}%` }}
-                    className="h-full bg-[#CFFD3E] transition-all duration-300 flex items-center justify-center text-[10px] font-black text-black select-none"
-                  >
-                    INSIGHT {insightRatio}%
-                  </div>
-                  <div
-                    style={{ width: `${100 - insightRatio}%` }}
-                    className="h-full bg-black text-white flex items-center justify-center text-[10px] font-black select-none"
-                  >
-                    {100 - insightRatio}%
-                  </div>
+              {/* Progress Bar (513px × 30px spec) */}
+              <div className="pt-2 space-y-2">
+                <div className="w-full max-w-[513px] h-[30px] bg-[#000000] relative overflow-hidden border border-[#000000] flex">
+                  {/* Volt Fill (86% / 442px spec) */}
+                  <div className="w-[86%] h-full bg-[#CFFD3E] transition-all duration-500" />
                 </div>
 
-                <div className="flex items-center justify-between text-xs font-mono font-bold">
-                  <span>90% RESEARCH & NEED PROOF</span>
-                  <span>10% PROTOTYPE SPEC</span>
+                <div className="w-full max-w-[513px] flex justify-between font-semibold text-[11px] leading-[13px] uppercase text-[#000000]">
+                  <span>INSIGHT 90%</span>
+                  <span>SOLUTION 10%</span>
                 </div>
-
-                <input
-                  type="range"
-                  min="50"
-                  max="95"
-                  value={insightRatio}
-                  onChange={(e) => setInsightRatio(Number(e.target.value))}
-                  className="w-full h-2 bg-neutral-200 accent-black cursor-pointer"
-                />
               </div>
             </div>
 
-            {/* Deadlines & Elimination Gate Split with Hover Lifts */}
-            <div className="grid grid-cols-2 border-b border-black font-sans">
-              <div className="p-5 sm:p-6 border-r border-black space-y-1 hover:bg-[#F3F4F6] transition-colors cursor-pointer group">
-                <span className="text-[10px] font-mono font-bold tracking-wider text-gray-500 uppercase block">
-                  SUBMISSION DEADLINE
+            {/* Middle Box: DEADLINE & ELIMINATION (117px spec, border-b: 1px) */}
+            <div className="w-full flex items-stretch border-b border-[#000000] box-border">
+              {/* Left Cell: DEADLINE (292.5px) */}
+              <div className="w-1/2 p-5 sm:p-6 border-r border-[#000000] space-y-1 hover:bg-[#F3F4F6] transition-colors">
+                <span className="font-medium text-[11px] leading-[13px] tracking-[1px] uppercase text-[#6B7280] block">
+                  DEADLINE
                 </span>
-                <span className="text-xl sm:text-2xl font-[900] block group-hover:translate-x-0.5 transition-transform">
+                <span className="font-[900] text-[22px] leading-[27px] text-[#000000] block">
                   05 OCT
                 </span>
-                <span className="text-xs font-mono text-gray-600 block">T-06D 11H 42M</span>
-              </div>
-              <div className="p-5 sm:p-6 space-y-1 bg-amber-50 hover:bg-[#CFFD3E]/30 transition-colors cursor-pointer group">
-                <span className="text-[10px] font-mono font-bold tracking-wider text-gray-500 uppercase block">
-                  ELIMINATION GATE
+                <span className="font-normal text-[11px] leading-[13px] text-[#6B7280] block font-mono">
+                  06D 11H 42M
                 </span>
-                <span className="text-xl sm:text-2xl font-[900] block text-black group-hover:translate-x-0.5 transition-transform">
+              </div>
+
+              {/* Right Cell: ELIMINATION (290.5px) */}
+              <div className="w-1/2 p-5 sm:p-6 space-y-1 hover:bg-[#CFFD3E]/20 transition-colors">
+                <span className="font-medium text-[11px] leading-[13px] tracking-[1px] uppercase text-[#6B7280] block">
+                  ELIMINATION
+                </span>
+                <span className="font-[900] text-[22px] leading-[27px] text-[#000000] block">
                   11 OCT
                 </span>
-                <span className="text-xs font-mono text-red-600 font-bold block uppercase">
+                <span className="font-normal text-[11px] leading-[13px] text-[#6B7280] block uppercase font-mono">
                   PROBLEM REVIEW
                 </span>
               </div>
             </div>
 
-            {/* What Gets Eliminated & Submit CTA with Hover Glow */}
-            <div className="p-6 sm:p-8 bg-[#F3F4F6] space-y-6 flex-1 flex flex-col justify-between">
-              <div className="space-y-2">
-                <span className="text-xs font-mono font-bold tracking-widest text-red-600 uppercase flex items-center gap-1.5">
-                  <AlertTriangle className="h-4 w-4" /> WHAT GETS ELIMINATED
+            {/* Bottom Box: WHAT GETS ELIMINATED & CTA (263px spec, #F3F4F6) */}
+            <div className="p-6 sm:p-8 bg-[#F3F4F6] flex-1 flex flex-col justify-between gap-4 box-border">
+              <div className="space-y-1">
+                <span className="font-medium text-[11px] leading-[13px] tracking-[1px] uppercase text-[#6B7280] block">
+                  WHAT GETS ELIMINATED
                 </span>
-                <p className="text-sm font-bold text-black leading-snug">
-                  Problems that are weakly defined, lack verifiable user friction, or assume solutions without inquiry.
+                <p className="font-bold text-[14px] leading-[17px] text-[#000000]">
+                  Problems that are weakly defined or not well supported.
                 </p>
               </div>
 
+              {/* SUBMIT / REGISTER Button (519px × 48px spec) */}
               <button
                 onClick={() => setIsRegisterOpen(true)}
-                className="w-full h-12 bg-black hover:bg-[#CFFD3E] hover:text-black text-white font-[900] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 border border-black shadow-lg transition-all duration-200 active:scale-[0.98] group cursor-pointer"
+                className="w-full max-w-[519px] h-[48px] bg-[#000000] hover:bg-[#CFFD3E] hover:text-[#000000] text-[#FFFFFF] font-extrabold text-[13px] leading-[16px] tracking-[0.5px] uppercase flex items-center justify-center gap-2 border border-[#000000] transition-colors cursor-pointer active:scale-[0.99] group shadow-md"
               >
-                <span>SUBMIT / REGISTER NOW</span>
-                <ArrowRight className="h-4 w-4 text-[#CFFD3E] group-hover:text-black group-hover:translate-x-1 transition-all" />
+                <span>SUBMIT / REGISTER</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Section: 03 THE CATCH - WHAT YOU ARE AGREEING TO */}
-        <div className="p-6 sm:p-12 border-b border-black space-y-8 bg-white">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <span className="text-xs font-mono font-bold tracking-widest text-neutral-500 uppercase block">
-              03 · THE CATCH — WHAT YOU ARE AGREEING TO
+        {/* Frame: Navigation Rules Bar (47px spec, border-b: 1px) */}
+        <div className="w-full min-h-[47px] px-6 py-3 border-b border-[#000000] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-['Inter',sans-serif] bg-white">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <span className="font-extrabold text-[12px] leading-[15px] uppercase text-[#000000]">
+              WHERE THIS COMES FROM →
             </span>
-            <span className="text-xs font-mono text-neutral-400">BNB PROTOCOL 2026</span>
+            <a href="#rules" className="font-semibold text-[12px] leading-[15px] uppercase text-[#6B7280] hover:text-black hover:underline transition-colors">
+              WHY THESE RULES?
+            </a>
+            <a href="#four-dimensions" className="font-semibold text-[12px] leading-[15px] uppercase text-[#6B7280] hover:text-black hover:underline transition-colors">
+              05 FOUR DIMENSIONS
+            </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="p-6 border border-black bg-[#EDEDED] hover:bg-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 space-y-3 cursor-pointer group">
-              <span className="text-xs font-mono font-[900] text-black block">01</span>
-              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight group-hover:text-black">
-                NO FIXED <br />PROBLEM
-              </h4>
-              <p className="text-xs text-neutral-700 leading-relaxed font-mono">
-                No artificial prompts or corporate prompts. You discover and validate the problem yourself.
-              </p>
-            </div>
-
-            <div className="p-6 border border-black bg-[#EDEDED] hover:bg-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 space-y-3 cursor-pointer group">
-              <span className="text-xs font-mono font-[900] text-black block">02</span>
-              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight group-hover:text-black">
-                4 PROGRESSIVE <br />FILTERS
-              </h4>
-              <p className="text-xs text-neutral-700 leading-relaxed font-mono">
-                Only projects that pass Problem Proof advance to Plan, Prototype, and Finale Proof.
-              </p>
-            </div>
-
-            <div className="p-6 border border-black bg-[#EDEDED] hover:bg-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 space-y-3 cursor-pointer group">
-              <span className="text-xs font-mono font-[900] text-black block">03</span>
-              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight group-hover:text-black">
-                REAL <br />ELIMINATION
-              </h4>
-              <p className="text-xs text-neutral-700 leading-relaxed font-mono">
-                50% of submissions cut at Gate 01. Rigorous jury criteria from SOD IIT Jodhpur faculty.
-              </p>
-            </div>
-          </div>
+          <a href="#depth-axis" className="font-semibold text-[12px] leading-[15px] uppercase text-[#6B7280] hover:text-black hover:underline transition-colors">
+            WHEN DOES IT CHANGE? → 06 DEPTH AXIS
+          </a>
         </div>
 
-        {/* Section: HOW IT WORKS — FOUR STEPS, THREE MONTHS */}
-        <div className="p-6 sm:p-12 space-y-6 bg-white">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-black pb-4 gap-2">
-            <div>
-              <span className="text-xs font-mono font-bold tracking-widest text-neutral-500 uppercase block">
-                TIMELINE ROADMAP
+        {/* Frame: 03 · THE CATCH — WHAT YOU ARE AGREEING TO (472px spec) */}
+        <div className="w-full p-6 sm:p-12 space-y-8 bg-white box-border">
+          {/* Section Header */}
+          <span className="font-medium text-[11px] leading-[13px] tracking-[1px] uppercase text-[#6B7280] block">
+            03 · THE CATCH — WHAT YOU ARE AGREEING TO
+          </span>
+
+          {/* 3 Pillars Grid (1287px × 157px spec) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Column 01: NO FIXED PROBLEM */}
+            <div className="space-y-3 group cursor-pointer">
+              <span className="font-extrabold text-[12px] leading-[15px] tracking-[1px] uppercase text-[#6B7280] block font-mono">
+                01
               </span>
-              <h3 className="text-2xl sm:text-3xl font-[900] uppercase tracking-tight">
-                FOUR STEPS, THREE MONTHS
-              </h3>
+              <h4 className="font-[900] text-[28px] sm:text-[32px] leading-[39px] tracking-[-1px] uppercase text-[#000000]">
+                NO FIXED <br />PROBLEM
+              </h4>
+              <div className="space-y-1 pt-1">
+                <div className="w-full h-[8px] bg-[#E5E7EB] group-hover:bg-black transition-colors" />
+                <div className="w-[180px] h-[8px] bg-[#E5E7EB] group-hover:bg-[#CFFD3E] transition-colors" />
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="px-3 py-1 bg-[#CFFD3E] hover:bg-black hover:text-white transition-colors text-black font-mono font-bold text-xs border border-black cursor-pointer">
-                IIT JODHPUR CAMPUS
+
+            {/* Column 02: 4 PROGRESSIVE FILTERS */}
+            <div className="space-y-3 group cursor-pointer">
+              <span className="font-extrabold text-[12px] leading-[15px] tracking-[1px] uppercase text-[#6B7280] block font-mono">
+                02
               </span>
+              <h4 className="font-[900] text-[28px] sm:text-[32px] leading-[39px] tracking-[-1px] uppercase text-[#000000]">
+                4 PROGRESSIVE <br />FILTERS
+              </h4>
+              <div className="space-y-1 pt-1">
+                <div className="w-full h-[8px] bg-[#E5E7EB] group-hover:bg-black transition-colors" />
+                <div className="w-[180px] h-[8px] bg-[#E5E7EB] group-hover:bg-[#CFFD3E] transition-colors" />
+              </div>
+            </div>
+
+            {/* Column 03: REAL ELIMINATION */}
+            <div className="space-y-3 group cursor-pointer">
+              <span className="font-extrabold text-[12px] leading-[15px] tracking-[1px] uppercase text-[#6B7280] block font-mono">
+                03
+              </span>
+              <h4 className="font-[900] text-[28px] sm:text-[32px] leading-[39px] tracking-[-1px] uppercase text-[#000000]">
+                REAL <br />ELIMINATION
+              </h4>
+              <div className="space-y-1 pt-1">
+                <div className="w-full h-[8px] bg-[#E5E7EB] group-hover:bg-black transition-colors" />
+                <div className="w-[180px] h-[8px] bg-[#E5E7EB] group-hover:bg-[#CFFD3E] transition-colors" />
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-5 border border-black bg-[#EDEDED] hover:bg-[#F3F4F6] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
-              <div className="flex justify-between items-center text-xs font-mono font-bold">
-                <span>PHASE 01</span>
-                <span className="text-neutral-500">SEP - OCT</span>
-              </div>
-              <h5 className="font-[900] text-base uppercase">PROBLEM VALIDATION</h5>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Empirical user interviews, stakeholder maps, and root-cause analysis.
-              </p>
-            </div>
+          {/* Section: HOW IT WORKS — FOUR STEPS, THREE MONTHS (142px spec) */}
+          <div className="pt-8 border-t border-[#E5E7EB] space-y-4">
+            <span className="font-medium text-[11px] leading-[13px] tracking-[1px] uppercase text-[#6B7280] block">
+              HOW IT WORKS — FOUR STEPS, THREE MONTHS
+            </span>
 
-            <div className="p-5 border border-black bg-white hover:bg-[#F3F4F6] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
-              <div className="flex justify-between items-center text-xs font-mono font-bold">
-                <span>PHASE 02</span>
-                <span className="text-neutral-500">OCT - NOV</span>
+            {/* 4 Steps Row (1287px × 89px spec) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* Step 01 */}
+              <div className="h-[89px] p-4 border border-[#000000] bg-white flex flex-col justify-between hover:bg-[#F3F4F6] transition-colors cursor-pointer group">
+                <div className="flex items-center justify-between">
+                  <span className="font-medium text-[9px] leading-[11px] tracking-[1px] uppercase text-[#6B7280] font-mono">
+                    STEP 01
+                  </span>
+                  <span className="font-bold text-[16px] leading-[19px] text-[#6B7280] group-hover:text-black group-hover:translate-x-1 transition-all">
+                    →
+                  </span>
+                </div>
+                <span className="font-extrabold text-[14px] leading-[17px] uppercase text-[#000000]">
+                  ENTER
+                </span>
+                <span className="font-normal text-[11px] leading-[13px] text-[#6B7280] font-mono">
+                  FIND A PROBLEM · 04
+                </span>
               </div>
-              <h5 className="font-[900] text-base uppercase">INSIGHT SYNTHESIS</h5>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Strategic framing, design directions, and technical feasibility studies.
-              </p>
-            </div>
 
-            <div className="p-5 border border-black bg-white hover:bg-[#F3F4F6] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
-              <div className="flex justify-between items-center text-xs font-mono font-bold">
-                <span>PHASE 03</span>
-                <span className="text-neutral-500">NOV - DEC</span>
+              {/* Step 02 */}
+              <div className="h-[89px] p-4 border border-[#000000] bg-white flex flex-col justify-between hover:bg-[#F3F4F6] transition-colors cursor-pointer group">
+                <div className="flex items-center justify-between">
+                  <span className="font-medium text-[9px] leading-[11px] tracking-[1px] uppercase text-[#6B7280] font-mono">
+                    STEP 02
+                  </span>
+                  <span className="font-bold text-[16px] leading-[19px] text-[#6B7280] group-hover:text-black group-hover:translate-x-1 transition-all">
+                    →
+                  </span>
+                </div>
+                <span className="font-extrabold text-[14px] leading-[17px] uppercase text-[#000000]">
+                  SUBMIT EACH DIMENSION
+                </span>
+                <span className="font-normal text-[11px] leading-[13px] text-[#6B7280] font-mono">
+                  DIRECTIVE · 02
+                </span>
               </div>
-              <h5 className="font-[900] text-base uppercase">CONCEPT PROOF</h5>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                High-fidelity digital, hardware, or spatial prototype development.
-              </p>
-            </div>
 
-            <div className="p-5 border border-black bg-[#CFFD3E] hover:bg-[#bbf319] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
-              <div className="flex justify-between items-center text-xs font-mono font-bold">
-                <span>PHASE 04</span>
-                <span className="font-extrabold text-black">27-29 DEC</span>
+              {/* Step 03 */}
+              <div className="h-[89px] p-4 border border-[#000000] bg-white flex flex-col justify-between hover:bg-[#F3F4F6] transition-colors cursor-pointer group">
+                <div className="flex items-center justify-between">
+                  <span className="font-medium text-[9px] leading-[11px] tracking-[1px] uppercase text-[#6B7280] font-mono">
+                    STEP 03
+                  </span>
+                  <span className="font-bold text-[16px] leading-[19px] text-[#6B7280] group-hover:text-black group-hover:translate-x-1 transition-all">
+                    →
+                  </span>
+                </div>
+                <span className="font-extrabold text-[14px] leading-[17px] uppercase text-[#000000]">
+                  PASS THE GATE
+                </span>
+                <span className="font-normal text-[11px] leading-[13px] text-[#6B7280] font-mono">
+                  3 GATES · 06
+                </span>
               </div>
-              <h5 className="font-[900] text-base uppercase">FINAL EXPO & PITCH</h5>
-              <p className="text-xs text-neutral-800 leading-relaxed font-medium">
-                Live stage presentations to national design jury, founders, and SOD directors.
-              </p>
+
+              {/* Step 04 */}
+              <div className="h-[89px] p-4 border border-[#000000] bg-[#CFFD3E] flex flex-col justify-between hover:bg-[#bbf319] transition-colors cursor-pointer group">
+                <div className="flex items-center justify-between">
+                  <span className="font-medium text-[9px] leading-[11px] tracking-[1px] uppercase text-black font-mono font-bold">
+                    STEP 04
+                  </span>
+                  <span className="font-bold text-[16px] leading-[19px] text-black group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </div>
+                <span className="font-extrabold text-[14px] leading-[17px] uppercase text-[#000000]">
+                  PROVE IT
+                </span>
+                <span className="font-normal text-[11px] leading-[13px] text-black font-mono font-bold">
+                  JURY · PILOT · 08
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Registration Modal triggered from Problem Phase */}
+      {/* Registration Modal */}
       <RegisterModal
         isOpen={isRegisterOpen}
         onClose={() => setIsRegisterOpen(false)}
