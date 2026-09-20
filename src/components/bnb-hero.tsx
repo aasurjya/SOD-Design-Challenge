@@ -57,8 +57,8 @@ export function BnbHero() {
   return (
     <>
       <div className="w-full max-w-[1383px] bg-[#EDEDED] text-[#000000] border border-[#000000] flex flex-col items-start p-0 relative font-['Inter',sans-serif] overflow-hidden select-none shadow-2xl transition-all">
-        {/* ------------------------------------------------ TOP HEADER BAR (y: 0..55, h=55px) */}
-        <header className="w-full h-[55px] border-b border-[#000000] flex flex-row justify-between items-center bg-[#EDEDED] p-0 box-border">
+        {/* ------------------------------------------------ TOP HEADER BAR (y: 0..56, h=56px) */}
+        <header className="w-full h-[56px] border-b border-[#000000] flex flex-row justify-between items-center bg-[#EDEDED] p-0 box-border">
           {/* Left Logo Group: SCHOOL OF DESIGN | IIT JODHPUR */}
           <div className="flex flex-row items-center pl-4 sm:pl-6 gap-2 sm:gap-4 h-full shrink-0 group cursor-pointer">
             <span className="font-extrabold text-[11px] leading-[13px] text-[#000000] tracking-tight uppercase group-hover:opacity-75 transition-opacity">
@@ -130,14 +130,14 @@ export function BnbHero() {
           </div>
         </header>
 
-        {/* ------------------------------------------------ MAIN GRID CONTAINER (y: 55..733) */}
+        {/* ------------------------------------------------ MAIN GRID CONTAINER (875px Left / 508px Right) */}
         <div className="w-full flex flex-col lg:flex-row items-stretch p-0">
-          {/* ============================================== LEFT COLUMN (w: 575px on lg+, border-r: 1px) */}
-          <div className="w-full lg:w-[575px] shrink-0 border-b lg:border-b-0 lg:border-r border-[#000000] flex flex-col justify-between bg-[#EDEDED]">
-            {/* Top Section: BEYOND NORMAL BELIEFS + REAL PROBLEMS (y: 55..461, h=406px) */}
-            <div className="min-h-[340px] lg:h-[406px] border-b border-[#000000] p-6 sm:p-7 relative flex flex-row justify-between items-start bg-[#EDEDED] group/top">
-              {/* Giant Title: BEYOND NORMAL BELIEFS with interactive hover shift */}
-              <h1 className="font-[900] text-[56px] sm:text-[76px] lg:text-[84px] leading-[88%] tracking-[-0.04em] uppercase text-[#000000] select-none cursor-default">
+          {/* ============================================== LEFT COLUMN (w: 875px on lg+, border-r: 1px) */}
+          <div className="w-full lg:w-[875px] shrink-0 border-b lg:border-b-0 lg:border-r border-[#000000] flex flex-col justify-between bg-[#EDEDED]">
+            {/* Top Section: BEYOND NORMAL BELIEFS (487px spec) */}
+            <div className="min-h-[360px] lg:h-[487px] border-b border-[#000000] p-6 sm:p-10 relative flex flex-col justify-between bg-[#EDEDED] group/top">
+              {/* Giant Title: BEYOND NORMAL BELIEFS */}
+              <h1 className="font-[900] text-[58px] sm:text-[88px] lg:text-[112px] leading-[88%] tracking-[-0.04em] uppercase text-[#000000] select-none cursor-default">
                 <span className="inline-block transition-transform duration-200 hover:translate-x-2">
                   BEYOND
                 </span>
@@ -151,87 +151,116 @@ export function BnbHero() {
                 </span>
               </h1>
 
-              {/* Subtext: REAL PROBLEMS. UNEXPECTED THINKING. with expanding underline hover */}
-              <div className="space-y-1.5 pt-2 max-w-[125px] shrink-0 group cursor-pointer">
-                <p className="font-extrabold text-[11px] leading-[14px] uppercase tracking-tight text-[#000000] group-hover:text-neutral-700 transition-colors">
-                  REAL
-                  <br />
-                  PROBLEMS.
-                  <br />
-                  UNEXPECTED
-                  <br />
-                  THINKING.
-                </p>
-                <div className="w-6 group-hover:w-full h-[2px] bg-[#000000] transition-all duration-300 mt-1" />
+              {/* Subtext: REAL PROBLEMS. UNEXPECTED THINKING. */}
+              <div className="space-y-1.5 pt-4 max-w-md group cursor-pointer">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-black" />
+                  <span className="font-extrabold text-xs sm:text-sm tracking-wider uppercase text-[#000000] group-hover:text-neutral-700 transition-colors">
+                    REAL PROBLEMS. UNEXPECTED THINKING.
+                  </span>
+                </div>
+                <div className="w-8 group-hover:w-40 h-[2px] bg-[#000000] transition-all duration-300" />
               </div>
             </div>
 
-            {/* Middle Volt Yellow Accent Box: UNSERIOUS (y: 461..577, h=116px, bg: #CFFD3E) */}
-            <div
-              onClick={() => setIsRegisterOpen(true)}
-              className="min-h-[96px] lg:h-[116px] bg-[#CFFD3E] hover:bg-[#bbf319] border-b border-[#000000] px-6 sm:px-7 py-4 lg:py-0 flex flex-row justify-between items-center gap-4 cursor-pointer transition-colors duration-200 group"
-            >
-              <h2 className="font-[900] text-[44px] sm:text-[54px] lg:text-[58px] leading-none tracking-[-0.03em] uppercase text-[#000000] group-hover:tracking-tight transition-all duration-200">
-                UNSERIOUS
-              </h2>
+            {/* Bottom Box of Left Column (230px spec) */}
+            <div className="min-h-[160px] lg:h-[230px] p-6 sm:p-10 flex flex-col justify-between bg-[#EDEDED]">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div className="max-w-md">
+                  <p className="font-extrabold text-[11px] sm:text-[12px] leading-relaxed uppercase tracking-tight text-[#000000]">
+                    A MULTIDISCIPLINARY DESIGNATHON WHERE REAL-WORLD PROBLEMS MOVE THROUGH
+                    <br />
+                    <span className="font-black text-black">PROBLEM → PLAN → PROTOTYPE → PROOF.</span>
+                  </p>
+                </div>
 
-              <div className="space-y-1 max-w-[170px] sm:max-w-[150px] shrink-0">
-                <blockquote className="font-bold text-[10px] sm:text-[11px] leading-[13px] text-[#000000]">
-                  “Solve something that matters without being precious about it.”
-                </blockquote>
-                <div className="w-5 group-hover:w-full h-[2px] bg-[#000000] transition-all duration-300 mt-0.5" />
-              </div>
-            </div>
-
-            {/* Lower Section: Multidisciplinary designathon & Same sky (y: 577..684, h=107px) */}
-            <div className="min-h-[88px] lg:h-[107px] border-b border-[#000000] px-6 sm:px-7 py-4 lg:py-0 flex flex-row justify-between items-center gap-4 bg-[#EDEDED] hover:bg-[#e6e6e6] transition-colors duration-200 group/lower">
-              <div className="max-w-[260px]">
-                <p className="font-extrabold text-[10px] leading-[14px] uppercase tracking-tight text-[#000000]">
-                  A MULTIDISCIPLINARY DESIGNATHON WHERE REAL-WORLD PROBLEMS MOVE THROUGH
-                  <br />
-                  <span className="font-black group-hover/lower:underline">PROBLEM → PLAN → PROTOTYPE → PROOF.</span>
-                </p>
+                <div className="space-y-1 max-w-[140px] shrink-0 group cursor-pointer">
+                  <p className="font-extrabold text-[11px] leading-[13px] uppercase tracking-tight text-[#000000]">
+                    SAME SKY.
+                    <br />
+                    DIFFERENT
+                    <br />
+                    QUESTIONS.
+                  </p>
+                  <div className="w-5 group-hover:w-full h-[2px] bg-[#000000] transition-all duration-300 mt-0.5" />
+                </div>
               </div>
 
-              <div className="space-y-1 max-w-[110px] shrink-0 group cursor-pointer">
-                <p className="font-extrabold text-[11px] leading-[13px] uppercase tracking-tight text-[#000000]">
-                  SAME SKY.
-                  <br />
-                  DIFFERENT
-                  <br />
-                  QUESTIONS.
-                </p>
-                <div className="w-5 group-hover:w-full h-[2px] bg-[#000000] transition-all duration-300 mt-0.5" />
+              {/* Bottom Tag Bar */}
+              <div className="pt-4 mt-2 border-t border-[#000000] flex items-center justify-between font-extrabold text-[11px] uppercase tracking-wider">
+                <span className="hover:opacity-70 cursor-pointer transition-opacity">IITJ</span>
+                <div
+                  onClick={() => setIsMenuOpen(true)}
+                  className="border border-[#000000] px-3 sm:px-4 py-0.5 text-[9px] sm:text-[10px] leading-[14px] text-center hover:bg-[#000000] hover:text-[#FFFFFF] cursor-pointer transition-colors duration-150"
+                >
+                  DESIGN & INNOVATION CHALLENGE -
+                </div>
+                <span className="hover:text-neutral-600 cursor-pointer transition-colors">#BNB2026</span>
               </div>
-            </div>
-
-            {/* Bottom Tag Bar: IITJ [DESIGN & INNOVATION CHALLENGE -] #BNB2026 (y: 684..733, h=49px) */}
-            <div className="min-h-[44px] lg:h-[49px] px-6 sm:px-7 py-2 lg:py-0 flex items-center justify-between font-extrabold text-[11px] uppercase tracking-wider bg-[#EDEDED]">
-              <span className="hover:opacity-70 cursor-pointer transition-opacity">IITJ</span>
-              <div
-                onClick={() => setIsMenuOpen(true)}
-                className="border border-[#000000] px-3 sm:px-4 py-0.5 text-[9px] sm:text-[10px] leading-[14px] text-center hover:bg-[#000000] hover:text-[#FFFFFF] cursor-pointer transition-colors duration-150"
-              >
-                DESIGN & INNOVATION CHALLENGE -
-              </div>
-              <span className="hover:text-neutral-600 cursor-pointer transition-colors">#BNB2026</span>
             </div>
           </div>
 
-          {/* ============================================== RIGHT COLUMN (w: 808px on lg+) */}
-          <div className="w-full lg:flex-1 flex flex-col bg-[#EDEDED]">
-            {/* Top Timer & Gate Bar (y: 55..127, h=72px) */}
-            <div className="min-h-[64px] lg:h-[72px] flex items-stretch border-b border-[#000000] bg-[#EDEDED]">
-              {/* COUNTDOWN TO SUBMISSION */}
-              <div className="flex-1 px-4 sm:px-8 py-2 lg:py-0 flex flex-col justify-center border-r border-[#000000] hover:bg-[#e4e4e4] transition-colors cursor-pointer group">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-                  <span className="font-extrabold text-[9px] leading-[11px] tracking-widest text-[#000000] uppercase block">
-                    COUNTDOWN TO SUBMISSION
+          {/* ============================================== RIGHT COLUMN (w: 508px on lg+, EARLIER UNSERIOUS POSITION) */}
+          <div className="w-full lg:w-[508px] shrink-0 flex flex-col bg-[#EDEDED]">
+            {/* Top Box: UNSERIOUS Accent Frame with Iconic Artwork (487px spec, #CFFD3E) */}
+            <div
+              onClick={() => setIsRegisterOpen(true)}
+              className="min-h-[440px] lg:h-[487px] bg-[#CFFD3E] hover:bg-[#bbf319] border-b border-[#000000] p-6 sm:p-8 flex flex-col justify-between cursor-pointer transition-colors duration-200 group relative overflow-hidden"
+            >
+              {/* Header inside UNSERIOUS */}
+              <div className="flex items-center justify-between z-10">
+                <span className="font-extrabold text-[10px] sm:text-[11px] tracking-widest text-[#000000] uppercase block">
+                  ✦ UNSERIOUS ETHOS
+                </span>
+                <span className="border border-black bg-black text-[#CFFD3E] font-mono text-[9px] font-black px-2 py-0.5 uppercase">
+                  IIT JODHPUR
+                </span>
+              </div>
+
+              {/* Main Artwork Showcase (The Balloon Cactus Dog) */}
+              <div className="my-auto flex items-center justify-center py-2 relative z-10">
+                <img
+                  src="/images/unserious-extracted.png"
+                  alt="UNSERIOUS Balloon Cactus Dog Artwork"
+                  className="max-h-[220px] sm:max-h-[240px] lg:max-h-[260px] w-auto object-contain drop-shadow-xl group-hover:scale-110 group-hover:rotate-1 transition-all duration-500"
+                />
+              </div>
+
+              {/* Typography & Ethos Quote */}
+              <div className="space-y-2 z-10">
+                <h2 className="font-[900] text-[44px] sm:text-[52px] leading-none tracking-[-0.03em] uppercase text-[#000000] group-hover:tracking-normal transition-all duration-200">
+                  UNSERIOUS
+                </h2>
+                <blockquote className="font-bold text-[12px] sm:text-[13px] leading-snug text-[#000000]">
+                  “Solve something that matters without being precious about it.”
+                </blockquote>
+                <div className="w-8 group-hover:w-full h-[2px] bg-[#000000] transition-all duration-300 mt-1" />
+              </div>
+
+              {/* Bottom Year Strip inside UNSERIOUS */}
+              <div className="pt-2 border-t border-black/20 flex items-center justify-between text-[10px] font-mono font-bold text-black z-10">
+                <span>DESIGN & INNOVATION CHALLENGE</span>
+                <span>2026</span>
+              </div>
+            </div>
+
+            {/* Bottom Box: Countdown Timer & Gate 01 (230px spec) */}
+            <div className="min-h-[160px] lg:h-[230px] p-6 sm:p-8 border-b border-[#000000] flex flex-col justify-between bg-[#EDEDED] hover:bg-[#e4e4e4] transition-colors group cursor-pointer">
+              <div className="space-y-1">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+                    <span className="font-extrabold text-[9px] leading-[11px] tracking-widest text-[#000000] uppercase block">
+                      COUNTDOWN TO SUBMISSION
+                    </span>
+                  </div>
+                  <span className="text-[9px] font-mono font-extrabold text-neutral-500">
+                    GATE 01
                   </span>
                 </div>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-[900] text-[22px] sm:text-[28px] lg:text-[32px] leading-tight tracking-tight uppercase text-[#000000] group-hover:tracking-normal transition-all">
+
+                <div className="flex items-baseline gap-1 pt-1">
+                  <span className="font-[900] text-[32px] sm:text-[38px] leading-tight tracking-tight uppercase text-[#000000] group-hover:tracking-normal transition-all">
                     T-{timeLeft.days}D {timeLeft.hours}H {timeLeft.minutes}M
                   </span>
                   <span className="font-mono text-xs text-neutral-600 font-bold">
@@ -240,32 +269,24 @@ export function BnbHero() {
                 </div>
               </div>
 
-              {/* NEXT GATE 11 OCT with Hover Volt Accent */}
-              <div
-                onClick={() => {
-                  const el = document.getElementById("final-2");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="w-[105px] sm:w-[130px] px-3 sm:px-6 py-2 lg:py-0 flex flex-col justify-center shrink-0 hover:bg-[#CFFD3E] transition-colors cursor-pointer group"
-              >
-                <span className="font-extrabold text-[9px] leading-[11px] tracking-widest text-[#000000] uppercase block">
-                  NEXT GATE
-                </span>
-                <span className="font-[900] text-[22px] sm:text-[28px] lg:text-[32px] leading-tight tracking-tight uppercase text-[#000000] group-hover:scale-105 transition-transform origin-left">
-                  11 OCT
-                </span>
-              </div>
-            </div>
-
-            {/* Right Main Artwork Canvas with Interactive Zoom Hover */}
-            <div className="w-full h-[360px] sm:h-[480px] lg:h-[606px] relative overflow-hidden bg-[#EDEDED] flex items-center justify-center p-0 group cursor-pointer">
-              <img
-                src="/images/Unserious-image.svg"
-                alt="UNSERIOUS Artwork Vector Pattern"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute bottom-4 right-4 bg-black/80 text-white text-[10px] font-mono px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                UNSERIOUS #BNB2026 CANVAS
+              {/* Gate & Elimination Status Bar */}
+              <div className="pt-3 border-t border-black/20 flex items-center justify-between">
+                <div>
+                  <span className="text-[9px] font-mono text-neutral-500 uppercase block font-bold">
+                    NEXT GATE
+                  </span>
+                  <span className="text-sm font-[900] text-black">
+                    11 OCT · PROBLEM REVIEW
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="text-[9px] font-mono text-neutral-500 uppercase block font-bold">
+                    LOCATION
+                  </span>
+                  <span className="text-xs font-bold text-black uppercase">
+                    IIT JODHPUR CAMPUS
+                  </span>
+                </div>
               </div>
             </div>
           </div>
