@@ -1,26 +1,185 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-display: var(--font-barlow);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-volt: var(--volt);
+  --color-volt-foreground: var(--volt-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================================================================
+   DESIGN TOKENS — Beyond Normal Beliefs (lo-fi structure, 1:1 with the Figma)
+   Canvas #EDEDED · ink #000 · volt accent #CFFD3E · hairline black rules
+   ========================================================================= */
+:root {
+  --background: #ededed;
+  --foreground: #000000;
+  --card: #ededed;
+  --card-foreground: #000000;
+  --popover: #ededed;
+  --popover-foreground: #000000;
+
+  --primary: #000000;
+  --primary-foreground: #ffffff;
+
+  --secondary: #e2e2e2;
+  --secondary-foreground: #000000;
+  --muted: #e2e2e2;
+  --muted-foreground: #4d4d4d;
+  --accent: #e2e2e2;
+  --accent-foreground: #000000;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #000000;
+  --input: #000000;
+  --ring: #000000;
+
+  /* volt accent ↓ */
+  --volt: #cffd3e;
+  --volt-foreground: #0a0a0a;
+
+  --chart-1: #000000;
+  --chart-2: #4d4d4d;
+  --chart-3: #8a8a8a;
+  --chart-4: #cffd3e;
+  --chart-5: #b7e02e;
+
+  --radius: 0rem;
+
+  --sidebar: #ededed;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #000000;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e2e2e2;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #000000;
+  --sidebar-ring: #000000;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card: #141414;
+  --card-foreground: #ededed;
+  --popover: #141414;
+  --popover-foreground: #ededed;
+
+  --primary: #ededed;
+  --primary-foreground: #0a0a0a;
+
+  --secondary: #1f1f1f;
+  --secondary-foreground: #ededed;
+  --muted: #1f1f1f;
+  --muted-foreground: #a3a3a3;
+  --accent: #1f1f1f;
+  --accent-foreground: #ededed;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: #ededed;
+  --input: #ededed;
+  --ring: #ededed;
+
+  --volt: #cffd3e;
+  --volt-foreground: #0a0a0a;
+
+  --chart-1: #ededed;
+  --chart-2: #a3a3a3;
+  --chart-3: #5c5c5c;
+  --chart-4: #cffd3e;
+  --chart-5: #b7e02e;
+
+  --sidebar: #141414;
+  --sidebar-foreground: #ededed;
+  --sidebar-primary: #ededed;
+  --sidebar-primary-foreground: #0a0a0a;
+  --sidebar-accent: #1f1f1f;
+  --sidebar-accent-foreground: #ededed;
+  --sidebar-border: #ededed;
+  --sidebar-ring: #ededed;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* --------------------------------------------------------------- motion */
+@keyframes bnb-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes bnb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-marquee {
+  animation: bnb-marquee 30s linear infinite;
+}
+.animate-spin-slow {
+  animation: bnb-spin 24s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-spin-slow {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------- blueprint grid */
+.bg-blueprint {
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--foreground) 15%, transparent) 1px,
+    transparent 1.4px
+  );
+  background-size: 22px 22px;
 }
