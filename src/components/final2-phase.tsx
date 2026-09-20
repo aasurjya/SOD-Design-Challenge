@@ -80,14 +80,14 @@ export function Final2Phase() {
         <div className="grid grid-cols-1 lg:grid-cols-12 border-b border-black">
           {/* ============================================== LEFT COLUMN */}
           <div className="lg:col-span-7 border-b lg:border-b-0 lg:border-r border-black p-6 sm:p-10 space-y-8 bg-white">
-            {/* Title & Subtitle */}
-            <div className="space-y-3">
+            {/* Title & Subtitle with hover interaction */}
+            <div className="space-y-3 group cursor-default">
               <h2 className="text-5xl sm:text-7xl lg:text-[76px] font-[900] tracking-tight uppercase leading-[0.92] text-black">
-                IS IT WORTH <br />
-                <span>SOLVING?</span>
+                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">IS IT WORTH</span> <br />
+                <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">SOLVING?</span>
               </h2>
               <div className="flex items-center gap-3 pt-1">
-                <span className="h-[2px] w-8 bg-black shrink-0" />
+                <span className="h-[2px] w-8 group-hover:w-16 transition-all duration-300 bg-black shrink-0" />
                 <p className="font-extrabold text-sm sm:text-base tracking-tight uppercase text-black">
                   Prove the problem is real before trying to solve it.
                 </p>
@@ -112,19 +112,19 @@ export function Final2Phase() {
                     <div
                       key={item.step}
                       onClick={() => setActiveStep(isActive ? null : index)}
-                      className={`p-4 border transition-all cursor-pointer select-none ${
+                      className={`p-4 border transition-all duration-200 cursor-pointer select-none group/step ${
                         isActive
-                          ? "border-black bg-[#CFFD3E] shadow-md"
-                          : "border-[#000000] bg-[#F3F4F6] hover:bg-neutral-100"
+                          ? "border-black bg-[#CFFD3E] shadow-md -translate-y-0.5"
+                          : "border-[#000000] bg-[#F3F4F6] hover:bg-neutral-100 hover:border-black hover:-translate-y-0.5 hover:shadow-md"
                       }`}
                     >
                       <div className="flex items-center justify-between font-black text-xs uppercase">
-                        <span>
+                        <span className="group-hover/step:translate-x-0.5 transition-transform">
                           {item.step} {item.title}
                         </span>
                         <ChevronDown
                           className={`w-4 h-4 transition-transform duration-200 ${
-                            isActive ? "rotate-180 text-black" : "text-neutral-500"
+                            isActive ? "rotate-180 text-black" : "text-neutral-500 group-hover/step:text-black"
                           }`}
                         />
                       </div>
@@ -149,10 +149,10 @@ export function Final2Phase() {
               </div>
             </div>
 
-            {/* Black Accent Card: DON'T BUILD YET */}
-            <div className="relative rounded-none bg-black text-white p-6 sm:p-8 space-y-3 overflow-hidden border border-black shadow-lg">
-              <div className="absolute bottom-4 right-4 h-3 w-16 bg-[#CFFD3E]" />
-              <h4 className="text-2xl sm:text-3xl font-[900] uppercase text-[#CFFD3E] tracking-tight leading-tight">
+            {/* Black Accent Card: DON'T BUILD YET with Hover Glow */}
+            <div className="relative rounded-none bg-black text-white p-6 sm:p-8 space-y-3 overflow-hidden border border-black shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-default">
+              <div className="absolute bottom-4 right-4 h-3 w-16 bg-[#CFFD3E] group-hover:w-24 transition-all duration-300" />
+              <h4 className="text-2xl sm:text-3xl font-[900] uppercase text-[#CFFD3E] tracking-tight leading-tight group-hover:tracking-normal transition-all">
                 DON’T BUILD YET. <br />
                 UNDERSTAND FIRST.
               </h4>
@@ -182,16 +182,16 @@ export function Final2Phase() {
 
               {/* Interactive Ratio Bar & Slider */}
               <div className="space-y-3">
-                <div className="h-8 w-full bg-black relative rounded-none overflow-hidden border border-black flex">
+                <div className="h-8 w-full bg-black relative rounded-none overflow-hidden border border-black flex shadow-inner">
                   <div
                     style={{ width: `${insightRatio}%` }}
-                    className="h-full bg-[#CFFD3E] transition-all duration-300 flex items-center justify-center text-[10px] font-black text-black"
+                    className="h-full bg-[#CFFD3E] transition-all duration-300 flex items-center justify-center text-[10px] font-black text-black select-none"
                   >
                     INSIGHT {insightRatio}%
                   </div>
                   <div
                     style={{ width: `${100 - insightRatio}%` }}
-                    className="h-full bg-black text-white flex items-center justify-center text-[10px] font-black"
+                    className="h-full bg-black text-white flex items-center justify-center text-[10px] font-black select-none"
                   >
                     {100 - insightRatio}%
                   </div>
@@ -213,27 +213,31 @@ export function Final2Phase() {
               </div>
             </div>
 
-            {/* Deadlines & Elimination Gate Split */}
+            {/* Deadlines & Elimination Gate Split with Hover Lifts */}
             <div className="grid grid-cols-2 border-b border-black font-sans">
-              <div className="p-5 sm:p-6 border-r border-black space-y-1">
+              <div className="p-5 sm:p-6 border-r border-black space-y-1 hover:bg-[#F3F4F6] transition-colors cursor-pointer group">
                 <span className="text-[10px] font-mono font-bold tracking-wider text-gray-500 uppercase block">
                   SUBMISSION DEADLINE
                 </span>
-                <span className="text-xl sm:text-2xl font-[900] block">05 OCT</span>
+                <span className="text-xl sm:text-2xl font-[900] block group-hover:translate-x-0.5 transition-transform">
+                  05 OCT
+                </span>
                 <span className="text-xs font-mono text-gray-600 block">T-06D 11H 42M</span>
               </div>
-              <div className="p-5 sm:p-6 space-y-1 bg-amber-50">
+              <div className="p-5 sm:p-6 space-y-1 bg-amber-50 hover:bg-[#CFFD3E]/30 transition-colors cursor-pointer group">
                 <span className="text-[10px] font-mono font-bold tracking-wider text-gray-500 uppercase block">
                   ELIMINATION GATE
                 </span>
-                <span className="text-xl sm:text-2xl font-[900] block text-black">11 OCT</span>
+                <span className="text-xl sm:text-2xl font-[900] block text-black group-hover:translate-x-0.5 transition-transform">
+                  11 OCT
+                </span>
                 <span className="text-xs font-mono text-red-600 font-bold block uppercase">
                   PROBLEM REVIEW
                 </span>
               </div>
             </div>
 
-            {/* What Gets Eliminated & Submit CTA */}
+            {/* What Gets Eliminated & Submit CTA with Hover Glow */}
             <div className="p-6 sm:p-8 bg-[#F3F4F6] space-y-6 flex-1 flex flex-col justify-between">
               <div className="space-y-2">
                 <span className="text-xs font-mono font-bold tracking-widest text-red-600 uppercase flex items-center gap-1.5">
@@ -246,9 +250,10 @@ export function Final2Phase() {
 
               <button
                 onClick={() => setIsRegisterOpen(true)}
-                className="w-full h-12 bg-black hover:bg-neutral-800 text-white font-[900] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 border border-black shadow-lg transition-transform active:scale-[0.98]"
+                className="w-full h-12 bg-black hover:bg-[#CFFD3E] hover:text-black text-white font-[900] text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 border border-black shadow-lg transition-all duration-200 active:scale-[0.98] group cursor-pointer"
               >
-                SUBMIT / REGISTER NOW <ArrowRight className="h-4 w-4 text-[#CFFD3E]" />
+                <span>SUBMIT / REGISTER NOW</span>
+                <ArrowRight className="h-4 w-4 text-[#CFFD3E] group-hover:text-black group-hover:translate-x-1 transition-all" />
               </button>
             </div>
           </div>
@@ -264,9 +269,9 @@ export function Final2Phase() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="p-6 border border-black bg-[#EDEDED] space-y-3">
+            <div className="p-6 border border-black bg-[#EDEDED] hover:bg-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 space-y-3 cursor-pointer group">
               <span className="text-xs font-mono font-[900] text-black block">01</span>
-              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight">
+              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight group-hover:text-black">
                 NO FIXED <br />PROBLEM
               </h4>
               <p className="text-xs text-neutral-700 leading-relaxed font-mono">
@@ -274,9 +279,9 @@ export function Final2Phase() {
               </p>
             </div>
 
-            <div className="p-6 border border-black bg-[#EDEDED] space-y-3">
+            <div className="p-6 border border-black bg-[#EDEDED] hover:bg-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 space-y-3 cursor-pointer group">
               <span className="text-xs font-mono font-[900] text-black block">02</span>
-              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight">
+              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight group-hover:text-black">
                 4 PROGRESSIVE <br />FILTERS
               </h4>
               <p className="text-xs text-neutral-700 leading-relaxed font-mono">
@@ -284,9 +289,9 @@ export function Final2Phase() {
               </p>
             </div>
 
-            <div className="p-6 border border-black bg-[#EDEDED] space-y-3">
+            <div className="p-6 border border-black bg-[#EDEDED] hover:bg-white hover:-translate-y-1 hover:shadow-md transition-all duration-200 space-y-3 cursor-pointer group">
               <span className="text-xs font-mono font-[900] text-black block">03</span>
-              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight">
+              <h4 className="text-xl sm:text-2xl font-[900] uppercase tracking-tight leading-tight group-hover:text-black">
                 REAL <br />ELIMINATION
               </h4>
               <p className="text-xs text-neutral-700 leading-relaxed font-mono">
@@ -308,14 +313,14 @@ export function Final2Phase() {
               </h3>
             </div>
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 bg-[#CFFD3E] text-black font-mono font-bold text-xs border border-black">
+              <span className="px-3 py-1 bg-[#CFFD3E] hover:bg-black hover:text-white transition-colors text-black font-mono font-bold text-xs border border-black cursor-pointer">
                 IIT JODHPUR CAMPUS
               </span>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-5 border border-black bg-[#EDEDED] space-y-2">
+            <div className="p-5 border border-black bg-[#EDEDED] hover:bg-[#F3F4F6] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
               <div className="flex justify-between items-center text-xs font-mono font-bold">
                 <span>PHASE 01</span>
                 <span className="text-neutral-500">SEP - OCT</span>
@@ -326,7 +331,7 @@ export function Final2Phase() {
               </p>
             </div>
 
-            <div className="p-5 border border-black bg-white space-y-2">
+            <div className="p-5 border border-black bg-white hover:bg-[#F3F4F6] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
               <div className="flex justify-between items-center text-xs font-mono font-bold">
                 <span>PHASE 02</span>
                 <span className="text-neutral-500">OCT - NOV</span>
@@ -337,7 +342,7 @@ export function Final2Phase() {
               </p>
             </div>
 
-            <div className="p-5 border border-black bg-white space-y-2">
+            <div className="p-5 border border-black bg-white hover:bg-[#F3F4F6] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
               <div className="flex justify-between items-center text-xs font-mono font-bold">
                 <span>PHASE 03</span>
                 <span className="text-neutral-500">NOV - DEC</span>
@@ -348,7 +353,7 @@ export function Final2Phase() {
               </p>
             </div>
 
-            <div className="p-5 border border-black bg-[#CFFD3E] space-y-2">
+            <div className="p-5 border border-black bg-[#CFFD3E] hover:bg-[#bbf319] hover:-translate-y-1 transition-all duration-200 space-y-2 cursor-pointer">
               <div className="flex justify-between items-center text-xs font-mono font-bold">
                 <span>PHASE 04</span>
                 <span className="font-extrabold text-black">27-29 DEC</span>
