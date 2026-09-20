@@ -20,100 +20,163 @@ export function BnbHero() {
   }, []);
 
   return (
-    <div className="w-full max-w-[1383px] bg-[#EDEDED] text-[#000000] border border-[#000000] flex flex-col items-start p-0 relative font-sans overflow-hidden shadow-2xl">
-      {/* ------------------------------------------------ FIGMA NODE 193:3 HEADER (56px) */}
-      <header className="w-full h-[56px] border-b border-[#000000] flex flex-row justify-between items-center px-0 bg-[#EDEDED] box-sizing-border select-none">
-        {/* Logo Group */}
-        <div className="flex flex-row items-center pl-6 gap-4 h-full">
-          <span className="font-['Inter'] font-extrabold text-[11px] leading-[13px] text-[#000000] tracking-tight">
+    <div className="w-full max-w-[1383px] bg-[#EDEDED] text-[#000000] border border-[#000000] flex flex-col items-start p-0 relative font-sans overflow-hidden shadow-2xl select-none">
+      {/* ------------------------------------------------ TOP HEADER BAR */}
+      <header className="w-full h-[56px] border-b border-[#000000] flex flex-row justify-between items-center px-4 sm:px-6 bg-[#EDEDED]">
+        {/* Left Logo Group */}
+        <div className="flex flex-row items-center gap-4">
+          <span className="font-['Inter'] font-extrabold text-[12px] leading-[14px] text-[#000000] tracking-tight uppercase">
             SCHOOL OF DESIGN
           </span>
           <div className="w-[1px] h-[16px] bg-[#000000]" />
-          <span className="font-['Inter'] font-extrabold text-[11px] leading-[13px] text-[#000000] tracking-tight">
+          <span className="font-['Inter'] font-extrabold text-[12px] leading-[14px] text-[#000000] tracking-tight uppercase">
             IIT JODHPUR
           </span>
         </div>
 
-        {/* Event Tag */}
-        <div className="flex flex-row justify-center items-center px-6 gap-[10px] h-[56px] border-l border-[#000000]">
-          <span className="font-['Inter'] font-extrabold text-[11px] leading-[13px] text-[#000000] tracking-widest">
-            #BNB2026
+        {/* Center Nav Links */}
+        <nav className="hidden lg:flex items-center gap-6 font-['Inter'] font-extrabold text-[11px] tracking-wider uppercase">
+          <a href="#ideas" className="hover:opacity-70 transition-opacity">IDEAS</a>
+          <a href="#people" className="hover:opacity-70 transition-opacity">PEOPLE</a>
+          <a href="#places" className="hover:opacity-70 transition-opacity">PLACES</a>
+          <a href="#possibilities" className="hover:opacity-70 transition-opacity">POSSIBILITIES</a>
+        </nav>
+
+        {/* Right Actions */}
+        <div className="flex items-center gap-3">
+          <a
+            href="#industry"
+            className="hidden sm:inline-block border border-[#000000] px-4 py-1.5 font-['Inter'] font-extrabold text-[11px] uppercase tracking-wider hover:bg-[#000000] hover:text-white transition-colors"
+          >
+            FOR INDUSTRY →
+          </a>
+          <button className="bg-[#000000] text-white px-5 py-1.5 font-['Inter'] font-extrabold text-[11px] uppercase tracking-wider hover:bg-gray-800 transition-colors">
+            ENTER
+          </button>
+          <span className="font-['Inter'] font-extrabold text-[11px] uppercase tracking-wider cursor-pointer hover:opacity-70">
+            MENU
           </span>
+          {/* IIT Jodhpur Emblem Logo */}
+          <div className="w-8 h-8 rounded-full border border-[#000000] flex items-center justify-center bg-white overflow-hidden text-[9px] font-black shrink-0">
+            IITJ
+          </div>
         </div>
       </header>
 
-      {/* ------------------------------------------------ MAIN BODY FRAME (717px) */}
-      <div className="w-full min-h-[717px] flex flex-col lg:flex-row items-start p-0">
-        {/* Left Column (875px spec) */}
-        <div className="w-full lg:w-[875px] min-h-[717px] flex flex-col items-start border-b lg:border-b-0 lg:border-r border-[#000000] shrink-0">
-          {/* Top Box: BEYOND NORMAL BELIEFS (487px spec) */}
-          <div className="w-full h-[487px] p-[24px] sm:p-[48px] border-b border-[#000000] flex flex-col justify-center bg-[#EDEDED]">
-            <h1 className="font-['Inter'] font-[900] text-[52px] sm:text-[88px] lg:text-[120px] leading-[90%] tracking-[-0.04em] uppercase text-[#000000] select-none">
+      {/* ------------------------------------------------ MAIN CONTENT GRID */}
+      <div className="w-full flex flex-col lg:flex-row items-stretch border-b border-[#000000]">
+        {/* LEFT COLUMN */}
+        <div className="w-full lg:w-[48%] border-b lg:border-b-0 lg:border-r border-[#000000] flex flex-col justify-between bg-[#EDEDED]">
+          {/* Top Section: BEYOND NORMAL BELIEFS + REAL PROBLEMS */}
+          <div className="p-6 sm:p-10 border-b border-[#000000] flex flex-col sm:flex-row justify-between items-start gap-6">
+            <h1 className="font-['Inter'] font-[900] text-[52px] sm:text-[76px] lg:text-[88px] leading-[88%] tracking-[-0.04em] uppercase text-[#000000]">
               BEYOND
               <br />
               NORMAL
               <br />
               BELIEFS
             </h1>
+            <div className="space-y-2 pt-2 max-w-[180px]">
+              <p className="font-['Inter'] font-extrabold text-[12px] leading-tight uppercase tracking-tight text-[#000000]">
+                REAL
+                <br />
+                PROBLEMS.
+                <br />
+                UNEXPECTED
+                <br />
+                THINKING.
+              </p>
+              <div className="w-8 h-[2px] bg-[#000000]" />
+            </div>
           </div>
 
-          {/* Bottom Box: Ethos / Subtitle (230px spec) */}
-          <div className="w-full h-[230px] p-[24px] sm:p-[48px] gap-[24px] flex flex-col sm:flex-row items-start sm:items-center justify-between bg-[#EDEDED]">
-            <div className="space-y-2">
-              <span className="font-['Inter'] font-black text-xs sm:text-sm tracking-wider uppercase text-[#000000] block">
-                REAL PROBLEMS. UNEXPECTED THINKING.
-              </span>
-              <p className="font-['Inter'] text-xs text-gray-700 max-w-lg leading-relaxed">
-                A multidisciplinary designathon where real-world problems move through{" "}
-                <span className="font-extrabold text-[#000000]">PROBLEM → PLAN → PROTOTYPE → PROOF</span>.
+          {/* Middle Volt Yellow Box (#CFFD3E): UNSERIOUS */}
+          <div className="p-6 sm:p-10 bg-[#CFFD3E] border-b border-[#000000] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <h2 className="font-['Inter'] font-[900] text-[48px] sm:text-[64px] lg:text-[76px] leading-[90%] tracking-[-0.03em] uppercase text-[#000000]">
+              UNSERIOUS
+            </h2>
+            <div className="space-y-2 max-w-[220px]">
+              <blockquote className="font-['Inter'] font-bold text-[13px] leading-snug text-[#000000]">
+                “Solve something that matters without being precious about it.”
+              </blockquote>
+              <div className="w-8 h-[2px] bg-[#000000]" />
+            </div>
+          </div>
+
+          {/* Lower Box: Multidisciplinary designathon & Same sky */}
+          <div className="p-6 sm:p-10 border-b border-[#000000] flex flex-col sm:flex-row justify-between items-start gap-6">
+            <div className="max-w-[280px]">
+              <p className="font-['Inter'] font-extrabold text-[11px] leading-relaxed uppercase text-[#000000]">
+                A MULTIDISCIPLINARY DESIGNATHON WHERE REAL-WORLD PROBLEMS MOVE THROUGH
+                <br />
+                <span className="font-black">PROBLEM → PLAN → PROTOTYPE → PROOF.</span>
               </p>
             </div>
-            <div className="text-2xl font-black text-[#000000] shrink-0">
-              ↘
+            <div className="space-y-2 max-w-[180px]">
+              <p className="font-['Inter'] font-extrabold text-[12px] leading-tight uppercase text-[#000000]">
+                SAME SKY.
+                <br />
+                DIFFERENT
+                <br />
+                QUESTIONS.
+              </p>
+              <div className="w-8 h-[2px] bg-[#000000]" />
             </div>
+          </div>
+
+          {/* Bottom Tag Bar of Left Column */}
+          <div className="p-4 px-6 sm:px-10 flex items-center justify-between font-['Inter'] font-extrabold text-[11px] uppercase tracking-wider bg-[#EDEDED]">
+            <span>IITJ</span>
+            <div className="border border-[#000000] px-4 py-1 text-[10px]">
+              DESIGN & INNOVATION CHALLENGE -
+            </div>
+            <span>#BNB2026</span>
           </div>
         </div>
 
-        {/* Right Column (508px spec) */}
-        <div className="w-full lg:w-[508px] min-h-[717px] flex flex-col items-start shrink-0">
-          {/* Top Box: UNSERIOUS Accent Frame (487px spec, #CFFD3E) */}
-          <div className="w-full h-[487px] p-[24px] sm:p-[48px] bg-[#CFFD3E] border-b border-[#000000] flex flex-col justify-between">
-            <div className="space-y-4">
-              <span className="font-['Inter'] font-black text-xs tracking-widest text-[#000000] uppercase block">
-                ✦ UNSERIOUS ETHOS
+        {/* RIGHT COLUMN */}
+        <div className="w-full lg:w-[52%] flex flex-col bg-white">
+          {/* Top Timer & Gate Bar */}
+          <div className="flex items-center justify-between border-b border-[#000000] bg-[#EDEDED]">
+            <div className="p-4 sm:px-8 border-r border-[#000000] flex-1">
+              <span className="font-['Inter'] font-extrabold text-[10px] tracking-widest text-gray-600 uppercase block">
+                COUNTDOWN TO SUBMISSION
               </span>
-              <h2 className="font-['Inter'] font-[900] text-[48px] sm:text-[64px] leading-[95%] tracking-[-0.03em] uppercase text-[#000000]">
-                UNSERIOUS
-              </h2>
-              <p className="font-['Inter'] font-bold text-sm sm:text-base text-[#000000] leading-snug">
-                “Solve something that matters without being precious about it.”
-              </p>
+              <span className="font-['Inter'] font-[900] text-[24px] sm:text-[32px] tracking-tight uppercase text-[#000000]">
+                T-{timeLeft.days}D {timeLeft.hours}H {timeLeft.minutes}M
+              </span>
             </div>
-
-            <div className="pt-6 border-t border-[#000000]/20 flex items-center justify-between">
-              <span className="font-['Inter'] font-extrabold text-xs uppercase tracking-wider text-[#000000]">
-                DESIGN & INNOVATION CHALLENGE
+            <div className="p-4 sm:px-8">
+              <span className="font-['Inter'] font-extrabold text-[10px] tracking-widest text-gray-600 uppercase block">
+                NEXT GATE
               </span>
-              <span className="font-['Inter'] font-black text-xs text-[#000000]">
-                2026
+              <span className="font-['Inter'] font-[900] text-[24px] sm:text-[32px] tracking-tight uppercase text-[#000000]">
+                11 OCT
               </span>
             </div>
           </div>
 
-          {/* Bottom Box: Countdown Timer (230px spec) */}
-          <div className="w-full h-[230px] p-[24px] sm:p-[48px] gap-[10px] border-b border-[#000000] flex flex-col justify-center bg-[#EDEDED]">
-            <span className="font-['Inter'] font-bold text-xs tracking-widest uppercase text-gray-600 block">
-              SUBMISSION COUNTDOWN
-            </span>
-            <div className="font-['Inter'] font-[800] text-[32px] sm:text-[40px] leading-[48px] tracking-[-0.02em] text-[#000000]">
-              T-{timeLeft.days}D {timeLeft.hours}H {timeLeft.minutes}M
-            </div>
-            <span className="font-['Inter'] font-semibold text-xs text-gray-500 block pt-1">
-              GATE 01 CLOSES SOON · IIT JODHPUR CAMPUS
-            </span>
+          {/* Artwork SVG Container */}
+          <div className="flex-1 min-h-[480px] bg-white relative overflow-hidden flex items-center justify-center p-0">
+            <img
+              src="/images/Unserious-image.svg"
+              alt="UNSERIOUS Designathon SVG Artwork"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
+
+      {/* ------------------------------------------------ BOTTOM FOOTER BAR */}
+      <footer className="w-full h-[48px] bg-[#EDEDED] flex items-center justify-between px-6 font-['Inter'] font-extrabold text-[11px] uppercase tracking-wider border-t border-[#000000]">
+        <span>27 SEP - 29 DEC | IIT JODHPUR</span>
+        <div className="flex items-center gap-3">
+          <span className="hidden sm:inline">IDEAS FOR A MORE INTERESTING TOMORROW.</span>
+          <div className="w-6 h-6 bg-[#000000] text-white flex items-center justify-center text-xs font-black">
+            *
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
