@@ -15,9 +15,26 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Design Challenge — Figma Importer & Design System",
+  title: "School of Design, IIT Jodhpur — Design & Innovation Challenge (#BNB2026)",
   description:
-    "Figma REST API OAuth 2.0 Integration & Design System Token Generator for Next.js 16.",
+    "Official Website for the multidisciplinary designathon at School of Design, IIT Jodhpur. Real problems. Unexpected thinking. 27 SEP – 29 DEC | IIT JODHPUR. #BNB2026",
+  keywords: [
+    "IIT Jodhpur",
+    "School of Design",
+    "SOD",
+    "Design Challenge",
+    "BNB2026",
+    "Designathon",
+    "IITJ",
+  ],
+  openGraph: {
+    title: "School of Design, IIT Jodhpur — Design & Innovation Challenge (#BNB2026)",
+    description:
+      "Official Website for the multidisciplinary designathon at School of Design, IIT Jodhpur. Real problems. Unexpected thinking.",
+    siteName: "School of Design, IIT Jodhpur",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 // Applies the saved theme before paint to avoid a flash of the wrong theme.
