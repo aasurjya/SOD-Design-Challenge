@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { MenuDrawer } from "@/components/menu-drawer";
 import { RegisterModal } from "@/components/register-modal";
@@ -15,15 +15,19 @@ const navItems = [
 
 export function BnbHero() {
   const [timeLeft, setTimeLeft] = useState({
-    days: "06",
-    hours: "11",
-    minutes: "42",
-    seconds: "18",
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+    isExpired: false,
   });
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isIndustryOpen, setIsIndustryOpen] = useState(false);
+  const menuTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const registerTriggerRef = useRef<HTMLElement | null>(null);
+  const industryTriggerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const targetDate = new Date("2026-10-05T23:59:59+05:30").getTime();
@@ -38,7 +42,10 @@ export function BnbHero() {
           hours: String(Math.floor((distance % 86_400_000) / 3_600_000)).padStart(2, "0"),
           minutes: String(Math.floor((distance % 3_600_000) / 60_000)).padStart(2, "0"),
           seconds: String(Math.floor((distance % 60_000) / 1_000)).padStart(2, "0"),
+          isExpired: false,
         });
+      } else {
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00", isExpired: true });
       }
     };
 
@@ -46,6 +53,28 @@ export function BnbHero() {
     const interval = setInterval(updateTimer, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const openMenu = (trigger: HTMLButtonElement) => {
+    menuTriggerRef.current = trigger;
+    setIsMenuOpen(true);
+  };
+
+  const openRegister = (trigger: HTMLElement | null) => {
+    registerTriggerRef.current = trigger;
+    setIsMenuOpen(false);
+    setIsRegisterOpen(true);
+  };
+
+  const openIndustry = (trigger: HTMLElement | null) => {
+    industryTriggerRef.current = trigger;
+    setIsMenuOpen(false);
+    setIsIndustryOpen(true);
+  };
+
+  const scrollToTop = () => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+  };
 
   return (
     <>
@@ -64,12 +93,12 @@ export function BnbHero() {
             </span>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-6 font-semibold text-[11px] uppercase">
+          <nav className="hidden min-[1383px]:flex items-center gap-6 font-semibold text-[11px] uppercase">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="hover:bg-[#CFFD3E] transition-colors"
+                className="hover:bg-[#CFFD3E] transition-colors focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
               >
                 {item.label}
               </a>
@@ -79,29 +108,29 @@ export function BnbHero() {
           <div className="flex items-center h-full">
             <button
               type="button"
-              onClick={() => setIsIndustryOpen(true)}
-              className="hidden md:flex h-full w-[135px] items-center justify-center border-x border-black font-bold text-[11px] uppercase hover:bg-[#CFFD3E] transition-colors"
+              onClick={(event) => openIndustry(event.currentTarget)}
+              className="hidden md:flex h-full w-[135px] items-center justify-center border-x border-black font-bold text-[11px] uppercase hover:bg-[#CFFD3E] transition-colors focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
             >
               FOR INDUSTRY →
             </button>
             <button
               type="button"
-              onClick={() => setIsRegisterOpen(true)}
-              className="h-full w-16 sm:w-[85px] bg-black text-white font-extrabold text-[11px] uppercase hover:bg-[#CFFD3E] hover:text-black transition-colors"
+              onClick={(event) => openRegister(event.currentTarget)}
+              className="h-full w-16 sm:w-[85px] bg-black text-white font-extrabold text-[11px] uppercase hover:bg-[#CFFD3E] hover:text-black transition-colors focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
             >
               ENTER
             </button>
             <button
               type="button"
-              onClick={() => setIsMenuOpen(true)}
-              className="h-full w-16 sm:w-[73px] border-x border-black font-bold text-[11px] uppercase hover:bg-black hover:text-white transition-colors"
+              onClick={(event) => openMenu(event.currentTarget)}
+              className="h-full w-16 sm:w-[73px] border-x border-black font-bold text-[11px] uppercase hover:bg-black hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
             >
               MENU
             </button>
             <button
               type="button"
-              onClick={() => setIsMenuOpen(true)}
-              className="hidden sm:flex h-full w-14 bg-white items-center justify-center"
+              onClick={(event) => openMenu(event.currentTarget)}
+              className="hidden sm:flex h-full w-14 bg-white items-center justify-center focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
               aria-label="Open menu"
             >
               <Image
@@ -115,10 +144,10 @@ export function BnbHero() {
           </div>
         </header>
 
-        <div className="flex flex-col lg:h-[677px] lg:flex-row">
-          <div className="lg:w-[576px] shrink-0 border-b lg:border-b-0 lg:border-r border-black flex flex-col">
-            <div className="min-h-[320px] lg:h-[354px] px-6 pt-8 pb-4 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
-              <h1 className="font-display font-black text-[76px] sm:text-[104px] lg:text-[124px] leading-[0.88] tracking-[-1px] uppercase whitespace-nowrap">
+        <div className="flex flex-col min-[1383px]:h-[677px] min-[1383px]:flex-row">
+          <div className="min-[1383px]:w-[576px] shrink-0 border-b min-[1383px]:border-b-0 min-[1383px]:border-r border-black flex flex-col">
+            <div className="min-h-[320px] min-[1383px]:h-[354px] px-6 pt-8 pb-4 flex flex-col min-[1383px]:flex-row min-[1383px]:items-start min-[1383px]:justify-between gap-6">
+              <h1 className="font-display font-black text-[76px] sm:text-[104px] min-[1383px]:text-[124px] leading-[0.88] tracking-[-1px] uppercase whitespace-nowrap">
                 <span className="block">BEYOND</span>
                 <span className="block">NORMAL</span>
                 <span className="block">BELIEFS</span>
@@ -131,10 +160,10 @@ export function BnbHero() {
               </div>
             </div>
 
-            <div className="hidden lg:block h-[51px]" aria-hidden="true" />
+            <div className="hidden min-[1383px]:block h-[51px]" aria-hidden="true" />
 
             <div className="min-h-[117px] bg-[#CFFD3E] border-y border-black px-6 py-5 flex items-center justify-between gap-6">
-              <h2 className="font-black text-[44px] sm:text-[56px] lg:text-[64px] leading-none tracking-[-1.28px] uppercase whitespace-nowrap">
+              <h2 className="font-black text-[44px] sm:text-[56px] min-[1383px]:text-[64px] leading-none tracking-[-1.28px] uppercase whitespace-nowrap">
                 UNSERIOUS
               </h2>
               <div className="hidden sm:flex w-[112px] flex-col gap-2">
@@ -161,8 +190,8 @@ export function BnbHero() {
               <span>IITJ</span>
               <button
                 type="button"
-                onClick={() => setIsMenuOpen(true)}
-                className="border border-black px-4 py-1.5 hover:bg-black hover:text-white transition-colors"
+                onClick={(event) => openMenu(event.currentTarget)}
+                className="border border-black px-4 py-1.5 hover:bg-black hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
               >
                 DESIGN &amp; INNOVATION CHALLENGE -
               </button>
@@ -174,7 +203,7 @@ export function BnbHero() {
             <div className="h-[72px] border-b border-black flex">
               <div className="flex-1 border-r border-black px-5 py-3">
                 <p className="font-extrabold text-[9px] uppercase">
-                  COUNTDOWN TO SUBMISSION
+                  {timeLeft.isExpired ? "SUBMISSION CLOSED" : "COUNTDOWN TO SUBMISSION"}
                 </p>
                 <p className="font-black text-[18px] tabular-nums">
                   T-{timeLeft.days}D {timeLeft.hours}H {timeLeft.minutes}M
@@ -185,9 +214,11 @@ export function BnbHero() {
                 <p className="font-black text-[18px]">11 OCT</p>
               </div>
             </div>
-            <div className="hidden lg:block flex-1" aria-hidden="true" />
+            <div className="hidden min-[1383px]:block flex-1" aria-hidden="true" />
           </div>
         </div>
+
+        <div className="unserious-image" aria-hidden="true" />
 
         <footer className="h-10 border-t border-black flex">
           <div className="flex-1 px-6 flex items-center justify-between gap-4 font-bold text-[10px] uppercase">
@@ -196,34 +227,33 @@ export function BnbHero() {
           </div>
           <button
             type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="w-10 bg-black border-l border-black text-white text-[20px] leading-none hover:bg-[#CFFD3E] hover:text-black transition-colors"
+            onClick={scrollToTop}
+            className="w-10 bg-black border-l border-black text-white text-[20px] leading-none hover:bg-[#CFFD3E] hover:text-black transition-colors focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
             aria-label="Scroll to top"
           >
             ✱
           </button>
         </footer>
 
-        <div className="pointer-events-none absolute left-[692px] top-[150px] z-10 hidden h-[673px] w-[561px] overflow-hidden lg:block" aria-hidden="true">
-          <Image
-            src="/images/unserious-extracted.png"
-            alt=""
-            width={2048}
-            height={3072}
-            priority
-            className="absolute left-[-5.43%] top-[-12.05%] h-[125.2%] w-[100.06%] max-w-none"
-          />
-        </div>
       </section>
 
       <MenuDrawer
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
-        onOpenRegister={() => setIsRegisterOpen(true)}
-        onOpenIndustry={() => setIsIndustryOpen(true)}
+        onOpenRegister={() => openRegister(menuTriggerRef.current)}
+        onOpenIndustry={() => openIndustry(menuTriggerRef.current)}
+        returnFocusRef={menuTriggerRef}
       />
-      <RegisterModal isOpen={isRegisterOpen} onClose={() => setIsRegisterOpen(false)} />
-      <IndustryModal isOpen={isIndustryOpen} onClose={() => setIsIndustryOpen(false)} />
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        returnFocusRef={registerTriggerRef}
+      />
+      <IndustryModal
+        isOpen={isIndustryOpen}
+        onClose={() => setIsIndustryOpen(false)}
+        returnFocusRef={industryTriggerRef}
+      />
     </>
   );
 }

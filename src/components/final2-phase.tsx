@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { RegisterModal } from "@/components/register-modal";
 
 const directives = [
@@ -37,6 +37,7 @@ const steps = [
 
 export function Final2Phase() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const registerTriggerRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>
@@ -51,9 +52,9 @@ export function Final2Phase() {
           </h2>
         </div>
 
-        <div className="flex flex-col lg:h-[622px] lg:flex-row">
-          <div className="lg:w-[800px] shrink-0 border-b lg:border-b-0 lg:border-r border-black p-8 flex flex-col gap-6">
-            <h3 className="font-black text-[52px] sm:text-[64px] lg:text-[72px] leading-[1.05] uppercase whitespace-pre-line">
+        <div className="flex flex-col min-[1383px]:h-[622px] min-[1383px]:flex-row">
+          <div className="min-[1383px]:w-[800px] shrink-0 border-b min-[1383px]:border-b-0 min-[1383px]:border-r border-black p-8 flex flex-col gap-6">
+            <h3 className="font-black text-[52px] sm:text-[64px] min-[1383px]:text-[72px] leading-[1.05] uppercase whitespace-pre-line">
               {"IS IT WORTH \nSOLVING?"}
             </h3>
             <p className="font-bold text-base">
@@ -124,9 +125,10 @@ export function Final2Phase() {
                 </p>
               </div>
               <button
+                ref={registerTriggerRef}
                 type="button"
                 onClick={() => setIsRegisterOpen(true)}
-                className="h-12 w-full bg-black text-white font-extrabold text-[13px] tracking-[0.5px] uppercase hover:bg-[#CFFD3E] hover:text-black transition-colors"
+                className="h-12 w-full bg-black text-white font-extrabold text-[13px] tracking-[0.5px] uppercase hover:bg-[#CFFD3E] hover:text-black transition-colors focus-visible:outline-2 focus-visible:outline-[#CFFD3E] focus-visible:outline-offset-2"
               >
                 SUBMIT / REGISTER
               </button>
@@ -134,8 +136,8 @@ export function Final2Phase() {
           </div>
         </div>
 
-        <div className="p-12 space-y-8 border-t border-black lg:border-t-0">
-          <h3 className="font-black text-[56px] sm:text-[72px] lg:text-[88px] leading-[0.98] tracking-[-1.76px] uppercase">
+        <div className="p-12 space-y-8 border-t border-black min-[1383px]:border-t-0">
+          <h3 className="font-black text-[56px] sm:text-[72px] min-[1383px]:text-[88px] leading-[0.98] tracking-[-1.76px] uppercase">
             HERE IS THE <span className="bg-black text-[#CFFD3E]">CATCH.</span>
           </h3>
 
@@ -155,9 +157,9 @@ export function Final2Phase() {
             <p className="font-medium text-[11px] tracking-[1px] uppercase text-[#6B7280]">
               HOW IT WORKS — FOUR STEPS, THREE MONTHS
             </p>
-            <div className="grid sm:grid-cols-2 lg:flex lg:items-center gap-4">
+            <div className="grid sm:grid-cols-2 min-[1383px]:flex min-[1383px]:items-center gap-4">
               {steps.map(([step, title, body], index) => (
-                <div key={step} className="contents lg:flex lg:flex-1 lg:items-center lg:gap-4">
+                <div key={step} className="contents min-[1383px]:flex min-[1383px]:flex-1 min-[1383px]:items-center min-[1383px]:gap-4">
                   <div
                     className={`min-h-[89px] p-4 flex flex-col gap-2 ${
                       index === 3 ? "bg-[#CFFD3E] border border-black" : "bg-[#070707] text-white border border-black"
@@ -170,7 +172,7 @@ export function Final2Phase() {
                     <p className={`text-[11px] ${index === 3 ? "text-black" : "text-[#BEBEBF]"}`}>{body}</p>
                   </div>
                   {index < steps.length - 1 && (
-                    <span className="hidden lg:block font-bold text-base text-[#6B7280]">→</span>
+                    <span className="hidden min-[1383px]:block font-bold text-base text-[#6B7280]">→</span>
                   )}
                 </div>
               ))}
@@ -180,7 +182,11 @@ export function Final2Phase() {
         </div>
       </section>
 
-      <RegisterModal isOpen={isRegisterOpen} onClose={() => setIsRegisterOpen(false)} />
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+        returnFocusRef={registerTriggerRef}
+      />
     </>
   );
 }

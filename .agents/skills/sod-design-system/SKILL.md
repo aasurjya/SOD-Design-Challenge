@@ -39,7 +39,11 @@ This skill defines the official visual and technical standards for the School of
 
 ## 3. Responsive Breakpoint Rules
 
-- **Desktop (1383px+)**: Pixel-perfect grid layout matching Figma Frame `node-id=193-400` (`1383px × 773px`) on the `Final Development` canvas (`node-id=193-3`).
+- **Desktop (1383px+)**: Pixel-perfect grid layout matching the approved frames on the `Final Development` canvas (`node-id=193-3`):
+  - Landing Page Final: `node-id=193-400` (`1383px × 773px`)
+  - Final 2: `node-id=202-154` (`1383px × 1317px`)
+  - Final 3: `node-id=218-56` (`1327px × 1068px`)
+  - Final 4: `node-id=218-152` (`1327px × 736px`)
 - **Tablet (768px - 1024px)**: Fluid column scaling, font scaling down proportionally (`clamp()`).
 - **Mobile (< 768px)**:
   - Header: Collapses navigation into interactive `MENU` slide-out drawer.

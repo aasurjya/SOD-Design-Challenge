@@ -15,6 +15,7 @@ interface NodeSpec {
   dimensions: string;
   bg: string;
   imagePath: string;
+  imageWidth: number;
   imageHeight: number;
 }
 
@@ -26,6 +27,7 @@ const PRESET_NODES: NodeSpec[] = [
     dimensions: "1383px × 773px",
     bg: "#EDEDED",
     imagePath: "/images/Landing Page Final.png",
+    imageWidth: 1383,
     imageHeight: 773,
   },
   {
@@ -35,16 +37,28 @@ const PRESET_NODES: NodeSpec[] = [
     dimensions: "1383px × 1317px",
     bg: "#FFFFFF",
     imagePath: "/images/figma-node-202-154.png",
+    imageWidth: 1383,
     imageHeight: 1317,
   },
   {
-    nodeId: "202:54",
+    nodeId: "218:56",
     name: "Final 3 (Journey & Team)",
     type: "FRAME",
-    dimensions: "1383px × 1430px",
+    dimensions: "1327px × 1068px",
     bg: "#FFFFFF",
-    imagePath: "/images/figma-node-202-54.png",
-    imageHeight: 1430,
+    imagePath: "/images/figma-node-218-56.png",
+    imageWidth: 1327,
+    imageHeight: 1068,
+  },
+  {
+    nodeId: "218:152",
+    name: "Final 4 (Questions)",
+    type: "FRAME",
+    dimensions: "1327px × 736px",
+    bg: "#FFFFFF",
+    imagePath: "/images/figma-node-218-152.png",
+    imageWidth: 1327,
+    imageHeight: 736,
   },
 ];
 
@@ -70,6 +84,7 @@ export function FigmaNodeVisualizer() {
         dimensions: "1383px × Auto",
         bg: "#000000",
         imagePath: "/images/Landing Page Final.png",
+        imageWidth: 1383,
         imageHeight: 773,
       });
       setIsLoading(false);
@@ -135,7 +150,7 @@ export function FigmaNodeVisualizer() {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <Input
-                placeholder="Enter custom Figma Node ID (e.g. 193:400 or 202:154)"
+                placeholder="Enter custom Figma Node ID (e.g. 193:400 or 218:56)"
                 value={customNodeId}
                 onChange={(e) => setCustomNodeId(e.target.value)}
                 className="pl-9 text-xs font-mono"
@@ -207,7 +222,7 @@ export function FigmaNodeVisualizer() {
                 <Image
                   src={selectedNode.imagePath}
                   alt={selectedNode.name}
-                  width={1383}
+                  width={selectedNode.imageWidth}
                   height={selectedNode.imageHeight}
                   className="w-full h-auto object-cover max-h-[480px] rounded-xl"
                 />

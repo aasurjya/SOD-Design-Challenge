@@ -88,6 +88,15 @@
 
   --radius: 0rem;
 
+  --motion-press: 80ms;
+  --motion-hover: 140ms;
+  --motion-modal-in: 200ms;
+  --motion-modal-out: 150ms;
+  --motion-drawer-in: 240ms;
+  --motion-drawer-out: 180ms;
+  --motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
   --sidebar: #ededed;
   --sidebar-foreground: #000000;
   --sidebar-primary: #000000;
@@ -162,16 +171,93 @@
     transform: rotate(360deg);
   }
 }
+@keyframes bnb-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes bnb-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes bnb-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes bnb-modal-out {
+  to {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+@keyframes bnb-drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes bnb-drawer-out {
+  to {
+    transform: translateX(100%);
+  }
+}
 .animate-marquee {
   animation: bnb-marquee 30s linear infinite;
 }
 .animate-spin-slow {
   animation: bnb-spin 24s linear infinite;
 }
+.bnb-animate-overlay[data-state="open"] {
+  animation: bnb-fade-in var(--motion-modal-in) var(--motion-ease-standard) both;
+}
+.bnb-animate-overlay[data-state="closed"] {
+  animation: bnb-fade-out var(--motion-modal-out) var(--motion-ease-exit) both;
+}
+.bnb-animate-modal[data-state="open"] {
+  animation: bnb-modal-in var(--motion-modal-in) var(--motion-ease-standard) both;
+}
+.bnb-animate-modal[data-state="closed"] {
+  animation: bnb-modal-out var(--motion-modal-out) var(--motion-ease-exit) both;
+}
+.bnb-animate-drawer[data-state="open"] {
+  animation: bnb-drawer-in var(--motion-drawer-in) var(--motion-ease-standard) both;
+}
+.bnb-animate-drawer[data-state="closed"] {
+  animation: bnb-drawer-out var(--motion-drawer-out) var(--motion-ease-exit) both;
+}
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .animate-marquee,
-  .animate-spin-slow {
+  .animate-spin-slow,
+  .bnb-animate-overlay,
+  .bnb-animate-modal,
+  .bnb-animate-drawer {
     animation: none;
+  }
+}
+
+.unserious-image {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 692px;
+  z-index: 10;
+  width: 561px;
+  height: 673px;
+  pointer-events: none;
+  background-image: url("/images/unserious-extracted.png");
+  background-repeat: no-repeat;
+  background-position: -30.45px -81.1px;
+  background-size: 100.06% 125.2%;
+}
+
+@media (min-width: 1383px) {
+  .unserious-image {
+    display: block;
   }
 }
 
