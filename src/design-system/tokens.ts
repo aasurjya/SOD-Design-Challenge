@@ -1,6 +1,6 @@
 /**
  * SOD: Design & Innovation Challenge (#BNB2026)
- * Design System Tokens (Figma Node-ID: 121-688 & 193-3)
+ * Design System Tokens (Figma canvas: 193-3; final frames: 193-400, 202-154, 202-54)
  */
 
 export const tokens = {

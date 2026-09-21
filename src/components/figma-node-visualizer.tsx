@@ -1,25 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import {
-  AlertCircle,
-  Check,
-  Code2,
-  Compass,
-  Download,
-  ExternalLink,
-  Eye,
-  Layers,
-  RefreshCw,
-  Search,
-  Sparkles,
-  Zap,
-} from "lucide-react";
+import Image from "next/image";
+import { Compass, ExternalLink, RefreshCw, Search } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 interface NodeSpec {
   nodeId: string;
@@ -27,36 +14,37 @@ interface NodeSpec {
   type: string;
   dimensions: string;
   bg: string;
+  imagePath: string;
+  imageHeight: number;
 }
 
 const PRESET_NODES: NodeSpec[] = [
   {
-    nodeId: "193:3",
+    nodeId: "193:400",
     name: "Landing Page Final (BNB #BNB2026)",
     type: "FRAME",
     dimensions: "1383px × 773px",
     bg: "#EDEDED",
+    imagePath: "/images/Landing Page Final.png",
+    imageHeight: 773,
   },
   {
-    nodeId: "193:4",
+    nodeId: "202:154",
     name: "Final 2 (Problem Phase)",
     type: "FRAME",
     dimensions: "1383px × 1317px",
     bg: "#FFFFFF",
+    imagePath: "/images/figma-node-202-154.png",
+    imageHeight: 1317,
   },
   {
-    nodeId: "193:12",
-    name: "UNSERIOUS Poster Vector Block",
-    type: "COMPONENT",
-    dimensions: "576px x 117px",
-    bg: "#CFFD3E",
-  },
-  {
-    nodeId: "193:24",
-    name: "Insight Ratio Card (90% / 10%)",
-    type: "COMPONENT",
-    dimensions: "583px x 242px",
-    bg: "#000000",
+    nodeId: "202:54",
+    name: "Final 3 (Journey & Team)",
+    type: "FRAME",
+    dimensions: "1383px × 1430px",
+    bg: "#FFFFFF",
+    imagePath: "/images/figma-node-202-54.png",
+    imageHeight: 1430,
   },
 ];
 
@@ -81,6 +69,8 @@ export function FigmaNodeVisualizer() {
         type: "NODE",
         dimensions: "1383px × Auto",
         bg: "#000000",
+        imagePath: "/images/Landing Page Final.png",
+        imageHeight: 773,
       });
       setIsLoading(false);
     }, 600);
@@ -145,7 +135,7 @@ export function FigmaNodeVisualizer() {
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <Input
-                placeholder="Enter custom Figma Node ID (e.g. 193:3 or 193:4)"
+                placeholder="Enter custom Figma Node ID (e.g. 193:400 or 202:154)"
                 value={customNodeId}
                 onChange={(e) => setCustomNodeId(e.target.value)}
                 className="pl-9 text-xs font-mono"
@@ -214,13 +204,11 @@ export function FigmaNodeVisualizer() {
           {activeTab === "visual" && (
             <div className="p-4 bg-slate-900 flex flex-col items-center justify-center min-h-[320px]">
               <div className="relative rounded-xl overflow-hidden border border-slate-800 shadow-2xl max-w-full">
-                <img
-                  src={
-                    selectedNode.nodeId.startsWith("193:4")
-                      ? "/images/figma-node-193-3.jpg"
-                      : "/images/figma-node-193-3.jpg"
-                  }
+                <Image
+                  src={selectedNode.imagePath}
                   alt={selectedNode.name}
+                  width={1383}
+                  height={selectedNode.imageHeight}
                   className="w-full h-auto object-cover max-h-[480px] rounded-xl"
                 />
                 <div className="absolute bottom-3 left-3 bg-slate-950/90 text-white font-mono text-[11px] px-3 py-1 rounded border border-white/20">
